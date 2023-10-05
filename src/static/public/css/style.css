@@ -96,6 +96,10 @@ form {
   justify-content: space-between
 }
 
+.logo-hubium {
+  display: flex;
+}
+
 .content {
   display: flex;
   width: 100%;
