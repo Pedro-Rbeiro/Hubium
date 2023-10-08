@@ -29,6 +29,14 @@
   font-size: 18px;
 }
 
+.font-size28 {
+  font-size: 28px;
+}
+
+.font-size32 {
+  font-size: 32px;
+}
+
 .loaded {
   animation: fadeIn 3s;
 }
@@ -58,10 +66,13 @@ ul {
 }
 
 a,
-p,
-h1 {
+p {
   text-decoration: none;
   color: var(--third-color);
+}
+
+h1 {
+  color: var(--fourth-color);
 }
 
 a:hover {
@@ -103,7 +114,7 @@ form {
   padding: 25px;
 }
 
-.container {
+.header-container {
   width: 100%;
   align-items: center;
   justify-content: space-between
@@ -257,6 +268,25 @@ form {
   margin-right: 10px;
 }
 
+.container {
+  padding: 25px 0 0 50px;
+}
+
+.new-songs {
+  margin: 20px 0 0 0;
+}
+
+.new-songs>h1::after {
+  content: "";
+  display: flex;
+  padding: 5px 0 0 0;
+  border-bottom: 3px solid var(--fourth-color);
+  width: 200px;
+}
+
+.top10-week {
+  margin: 25px 0 0 0;
+}
 
 @keyframes fadeIn {
   100% {

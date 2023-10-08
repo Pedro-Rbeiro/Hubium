@@ -13,9 +13,8 @@ app.use(
 // importar JSON
 app.use(express.json());
 
-
 const hbs = exphbs.create({
-  partialsDir: ['/src/views/partials']
+  partialsDir: [path.join(__dirname, '/src/views/partials')]
 })
 
 app.set('views', path.join(__dirname, '/src/views'));

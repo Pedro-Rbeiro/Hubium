@@ -1,6 +1,5 @@
 window.onload = () => {
   const loadingScreen = document.getElementById('loading')
-
   setTimeout(() => {
     loadingScreen.classList.add('loaded')
     console.log("added class");
@@ -33,7 +32,7 @@ const squares = document.querySelectorAll(".Preloader-square");
 
 const tl = new TimelineMax({ onComplete: Test });
 
-const anim = function () {
+const anim = () => {
   tl.staggerFromTo(squares, 0.8,
     {
       height: 0,
