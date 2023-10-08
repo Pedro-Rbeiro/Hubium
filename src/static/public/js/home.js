@@ -2,11 +2,9 @@ window.onload = () => {
   const loadingScreen = document.getElementById('loading')
 
   setTimeout(() => {
-    console.log("Delayed for 4 seconds.");
     loadingScreen.classList.add('loaded')
     console.log("added class");
     setTimeout(() => {
-      console.log("Delayed for 5 seconds.");
       document.getElementById('section-flex').removeChild(loadingScreen)
     }, 3000);
   }, 4000);
