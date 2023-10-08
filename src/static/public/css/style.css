@@ -38,7 +38,10 @@
 
 body {
   background-color: var(--first-color);
+
 }
+
+
 
 ul {
   display: flex;
@@ -166,4 +169,87 @@ form {
 #search-btn>span {
   padding: 0 10px 0 0;
   font-size: 20px;
+}
+
+#hamburger-icon {
+  display: none;
+  margin: 0 40px 0 0;
+  color: var(--first-color);
+}
+
+.sign {
+  display: block;
+
+}
+
+.flex-links {
+  width: 100%;
+  z-index: -1;
+  position: fixed;
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--fourth-color);
+  transition: 0.3s cubic-bezier(0.3, 0, 0, 1.01);
+
+}
+
+#hamburger-link>a {
+  display: block;
+  color: var(--first-color);
+  padding: 5px 0;
+
+}
+
+.deactivated {
+  top: -200px;
+}
+
+.active {
+  top: 60px;
+}
+
+.search-input {
+  width: inherit;
+}
+
+@media(max-width: 375px) {
+  .search-input {
+    width: 100px;
+  }
+
+}
+
+@media(min-width: 1025px) {
+  .flex-links {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  section {
+    position: absolute;
+    z-index: -2;
+    display: flex;
+
+    align-items: center;
+  }
+
+  .sign {
+    display: none;
+  }
+
+  .content {
+    justify-content: center;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
+
+  .nav-text {
+    display: none;
+  }
 }
