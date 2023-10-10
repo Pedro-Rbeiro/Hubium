@@ -21,20 +21,24 @@
   font-weight: 900;
 }
 
+.font-size14 {
+  font-size: 0.875rem;
+}
+
 .font-size16 {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .font-size18 {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .font-size28 {
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 .font-size32 {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .loaded {
@@ -88,7 +92,6 @@ li {
 header {
   display: flex;
   width: 100%;
-
   background-color: var(--second-color);
   ;
 }
@@ -269,7 +272,7 @@ form {
 }
 
 .container {
-  padding: 25px 0 0 50px;
+  padding: 25px 50px 0 50px;
 }
 
 .new-songs {
@@ -286,6 +289,24 @@ form {
 
 .top10-week {
   margin: 25px 0 0 0;
+}
+
+.carousel-container {
+  display: flex;
+  width: 100%;
+  overflow: scroll;
+  justify-content: space-between;
+  margin: 15px 0 0 0;
+  /* -ms-overflow-style: none;
+  scrollbar-width: none; */
+}
+
+.carousel-container>.carousel-itens {
+  margin: 0 40px 0 0;
+}
+
+.album-cover {
+  border-radius: 10px;
 }
 
 @keyframes fadeIn {
@@ -342,5 +363,12 @@ form {
 
   .nav-text {
     display: none;
+  }
+}
+
+@media (min-width: 2400px) {
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+
   }
 }

@@ -7,8 +7,6 @@ window.onload = () => {
       document.getElementById('section-flex').removeChild(loadingScreen)
     }, 3000);
   }, 4000);
-
-
 }
 const hamburgerNav = document.getElementById('hamburger-nav')
 const hamburger = document.getElementById("hamburger-icon")
