@@ -1,41 +1,21 @@
+// Preloader
 window.onload = () => {
   const loadingScreen = document.getElementById('loading')
-  const body = document.querySelector('body')
-  body.classList.add('overflow-hidden')
   setTimeout(() => {
-
     loadingScreen.classList.add('loaded')
-
-    console.log("added class");
-
 
     setTimeout(() => {
       document.getElementById('section-flex').removeChild(loadingScreen)
-
-      body.classList.remove('overflow-hidden')
-    }, 3000);
-  }, 4000);
+    }, 2000);
+  }, 3000);
 }
-const hamburgerNav = document.getElementById('hamburger-nav')
-const hamburger = document.getElementById("hamburger-icon")
-hamburger.addEventListener('click', () => {
 
-  if (hamburgerNav.classList.contains('deactivated')) {
-    hamburgerNav.classList.remove('deactivated')
-    hamburgerNav.classList.add('active')
-  } else {
-    hamburgerNav.classList.remove('active')
-    hamburgerNav.classList.add('deactivated')
-  }
-
-})
 const colors = [
   "#FFFFFF",
   "#8F00FF",
 ];
 
 const squares = document.querySelectorAll(".Preloader-square");
-
 const tl = new TimelineMax({ onComplete: Test });
 
 const anim = () => {
@@ -65,3 +45,21 @@ function Test() {
   tl.invalidate();
   anim();
 };
+
+
+// Hamburger nav 
+const hamburgerNav = document.getElementById('hamburger-nav')
+const hamburger = document.getElementById("hamburger-icon")
+hamburger.addEventListener('click', () => {
+
+  if (hamburgerNav.classList.contains('deactivated')) {
+    hamburgerNav.classList.remove('deactivated')
+    hamburgerNav.classList.add('active')
+  } else {
+    hamburgerNav.classList.remove('active')
+    hamburgerNav.classList.add('deactivated')
+  }
+
+})
+
+

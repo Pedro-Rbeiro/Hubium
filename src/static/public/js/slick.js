@@ -3,6 +3,7 @@ $(document).ready(() => {
     dots: true,
     infinite: false,
     speed: 300,
+    cssEase: 'cubic-bezier(.25,.1,.25,1)',
     slidesToShow: 5,
     slidesToScroll: 5,
     responsive: [{
@@ -79,5 +80,10 @@ $(document).ready(() => {
     ]
   });
 
-
+  $('.carousel-promote').slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    cssEase: 'cubic-bezier(.25,.1,.25,1)',
+  });
 })
