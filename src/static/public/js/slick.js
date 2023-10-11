@@ -2,13 +2,9 @@ $(document).ready(() => {
   $('.carousel-container').slick({
     dots: true,
     infinite: true,
-
     speed: 300,
-
     slidesToShow: 5,
     slidesToScroll: 5,
-
-
     responsive: [{
       breakpoint: 2561,
       settings: {

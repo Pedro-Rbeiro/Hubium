@@ -1,10 +1,18 @@
 window.onload = () => {
   const loadingScreen = document.getElementById('loading')
+  const body = document.querySelector('body')
+  body.classList.add('overflow-hidden')
   setTimeout(() => {
+
     loadingScreen.classList.add('loaded')
+
     console.log("added class");
+
+
     setTimeout(() => {
       document.getElementById('section-flex').removeChild(loadingScreen)
+
+      body.classList.remove('overflow-hidden')
     }, 3000);
   }, 4000);
 }

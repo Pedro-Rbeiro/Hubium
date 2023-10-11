@@ -61,7 +61,12 @@
   --fourth-color: #333333;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 body {
+
   background-color: var(--first-color);
 
 }
@@ -92,6 +97,8 @@ li {
 
 header {
   display: flex;
+  z-index: 3;
+  position: fixed;
   width: 100%;
   background-color: var(--second-color);
   ;
