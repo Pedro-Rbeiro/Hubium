@@ -4,7 +4,13 @@ const exphbs = require('express-handlebars')
 const path = require('path')
 const app = express()
 // con.connect((err) => { console.log(err ?? "Conexão bem sucedida!") })
+var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
 
+var $ = jQuery = require('jquery')(window);
 app.use(
   express.urlencoded({
     extended: true,
@@ -25,6 +31,7 @@ app.use(express.static(__dirname + '/src/static'))
 
 
 app.get('/', (req, res) => {
+
   res.render('home')
 })
 app.listen(port)

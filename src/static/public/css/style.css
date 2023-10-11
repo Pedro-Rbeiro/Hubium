@@ -5,6 +5,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+
 .regular400 {
   font-weight: 400;
 }
@@ -233,8 +234,9 @@ form {
   position: fixed;
   width: 100%;
   height: 100vh;
+
   background-color: #333333;
-  z-index: 1;
+  z-index: 2;
 
 }
 
@@ -247,6 +249,7 @@ form {
 
 .Preloader {
   display: flex;
+
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -292,10 +295,10 @@ form {
 }
 
 .carousel-container {
-  display: flex;
+  display: inline-block;
   width: 100%;
+  height: 200%;
   overflow: scroll;
-  justify-content: space-between;
   margin: 15px 0 0 0;
   /* -ms-overflow-style: none;
   scrollbar-width: none; */
