@@ -59,6 +59,7 @@
   --second-color: #8F00FF;
   --third-color: #FFFCFF;
   --fourth-color: #333333;
+  --separator: #5f5f5f5f
 }
 
 .overflow-hidden {
@@ -271,7 +272,7 @@ form {
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .Preloader-square {
@@ -331,6 +332,13 @@ form {
   background-color: #333333;
 }
 
+.carousel-container::after {
+  content: "";
+  display: flex;
+  padding: 5px 0 10px 0;
+  border-bottom: 1px solid var(--separator);
+  width: 100%;
+}
 
 @keyframes fadeIn {
   100% {
@@ -379,20 +387,6 @@ form {
 
 
 @media (max-width: 1024px) {
-  /* #loading {
-    height: 200vh;
-
-  } */
-
-  /* section {
-    position: absolute;
-    z-index: -2;
-    display: flex;
-
-    align-items: center;
-  } */
-
-
   .sign {
     display: none;
   }
