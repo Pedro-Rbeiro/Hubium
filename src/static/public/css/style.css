@@ -5,6 +5,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  outline: none;
+}
+
+.active-btn {
+  color: var(--second-color) !important;
+  font-weight: 700;
+}
 
 .regular400 {
   font-weight: 400;
@@ -34,6 +42,10 @@
   font-size: 1.125rem;
 }
 
+.font-size24 {
+  font-size: 1.5rem;
+}
+
 .font-size28 {
   font-size: 1.75rem;
 }
@@ -59,6 +71,7 @@
   --second-color: #8F00FF;
   --third-color: #FFFCFF;
   --fourth-color: #333333;
+  --hover: #6700b6;
   --separator: #5f5f5f5f
 }
 
@@ -67,7 +80,6 @@
 }
 
 body {
-
   background-color: var(--first-color);
 
 }
@@ -116,15 +128,10 @@ nav {
 }
 
 label {
-  color: var(--third-color);
+  color: var(--fourth-color);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  background-color: #5E239D;
-  padding: 25px;
-}
+
 
 .header-container {
   width: 100%;
@@ -169,6 +176,20 @@ form {
   padding: 20px;
   border-radius: 20px;
   margin: 20px 0 0;
+}
+
+.sign {
+  color: var(--first-color);
+}
+
+
+.profile-icon {
+  font-size: 28px !important;
+  color: var(--first-color);
+  border-radius: 20px;
+  padding: 2px;
+  border: 2px solid var(--first-color);
+  margin: 0 8px 0 0;
 }
 
 .search-sign {
@@ -272,7 +293,6 @@ form {
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  /* margin-bottom: 10px; */
 }
 
 .Preloader-square {
@@ -308,8 +328,6 @@ form {
   height: 200%;
   overflow: hidden;
   margin: 15px 0 0 0;
-  /* -ms-overflow-style: none;
-  scrollbar-width: none; */
 }
 
 .carousel-container>.carousel-itens {
@@ -317,6 +335,7 @@ form {
 }
 
 .album-cover {
+  background-image: url('/img/preloader/Ripple.gif');
   border-radius: 10px;
 }
 
@@ -340,6 +359,93 @@ form {
   width: 100%;
 }
 
+.carousel-itens>img {
+  width: 200px;
+  height: 200px
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* background-color: var(--fourth-color); */
+
+  padding: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.form-content {
+  width: 400px;
+  /* border: 2px solid var(--fourth-color); */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.form-nav>a {
+  color: var(--fourth-color);
+}
+
+form>input[type="text"],
+form>input[type="email"] {
+  margin: 0 0 15px 0;
+}
+
+.submit-btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+button {
+  margin: 10px 0 0 0;
+  padding: 10px 25px;
+  color: var(--first-color);
+  background-color: var(--second-color);
+  border: none !important;
+  border-radius: 8px;
+}
+
+button:hover {
+  transition: 100ms;
+  cursor: pointer;
+  background-color: var(--hover);
+}
+
+form>input {
+  width: 100%;
+  height: 40px;
+
+}
+
+.active-btn:hover {
+  transition: 100ms;
+  cursor: pointer;
+  color: var(--hover) !important;
+}
+
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+  margin: 10px 0 15px 0;
+
+}
+
+.terms-and-conditions {
+  margin: 10px 0 0 0;
+  text-align: center;
+  color: var(--fourth-color);
+}
+
 @keyframes fadeIn {
   100% {
     opacity: 0;
@@ -356,6 +462,12 @@ form {
     width: 100px;
   }
 
+  .carousel-itens>img {
+    width: 150px;
+    height: 150px
+  }
+
+
 }
 
 @media(max-width: 768px) {
@@ -363,7 +475,43 @@ form {
     width: 100%;
   }
 
+  .font-size32 {
+    font-size: 28px;
+  }
+
+  .container>h1 {
+    text-align: center;
+  }
+
+  .container {
+    padding: 25px 0 0 0;
+  }
+
 }
+
+@media(max-width: 425px) {
+
+
+  h1 {
+    text-align: center;
+  }
+
+  .new-songs>h1 {
+    padding: 0 15px 0 15px;
+  }
+
+  .new-songs>h1::after {
+    content: "";
+    display: flex;
+    text-align: center;
+    padding: 5px 0 0 0;
+    border-bottom: 3px solid var(--fourth-color);
+    width: 100%;
+  }
+
+}
+
+
 
 @media(min-width: 769px) {
   .carousel-promote {
@@ -387,6 +535,10 @@ form {
 
 
 @media (max-width: 1024px) {
+  .profile-icon {
+    display: none !important;
+  }
+
   .sign {
     display: none;
   }
@@ -407,6 +559,5 @@ form {
 @media (min-width: 2400px) {
   .carousel-container::-webkit-scrollbar {
     display: none;
-
   }
 }

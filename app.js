@@ -24,7 +24,12 @@ app.use(express.static(__dirname + '/src/static'))
 
 // Endpoints
 app.get('/', (req, res) => {
-
   res.render('home')
+})
+app.get('/register', (req, res) => {
+  res.render('register')
+})
+app.get('/login', (req, res) => {
+  res.render('login')
 })
 app.listen(port)
