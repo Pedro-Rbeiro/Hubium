@@ -335,7 +335,7 @@ label {
 }
 
 .album-cover {
-  background-image: url('/img/preloader/Ripple.gif');
+  background-image: url('/img/preloader/hubium-loader.gif');
   border-radius: 10px;
 }
 
@@ -399,6 +399,21 @@ form>input[type="email"] {
   margin: 0 0 15px 0;
 }
 
+input[type="text"],
+input[type="email"] {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+form>input {
+  padding: 0 10px;
+
+  border: 1px solid var(--fourth-color);
+  outline: none;
+  border-radius: 5px;
+}
+
 .submit-btn {
   display: flex;
   width: 100%;
@@ -444,6 +459,12 @@ form>input {
   margin: 10px 0 0 0;
   text-align: center;
   color: var(--fourth-color);
+}
+
+.forgot-password-flex {
+  display: flex;
+  justify-content: end;
+  margin: 5px 0 0 0;
 }
 
 @keyframes fadeIn {
@@ -511,20 +532,16 @@ form>input {
 
 }
 
-
-
 @media(min-width: 769px) {
   .carousel-promote {
     width: 60%;
   }
-
 }
 
 @media(min-width: 1440px) {
   .carousel-promote {
     width: 40%;
   }
-
 }
 
 @media(min-width: 1025px) {
