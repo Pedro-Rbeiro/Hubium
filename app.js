@@ -3,7 +3,7 @@ const port = 3000;
 const exphbs = require('express-handlebars')
 const path = require('path')
 const app = express()
-// con.connect((err) => { console.log(err ?? "Conexão bem sucedida!") })
+
 app.use(
   express.urlencoded({
     extended: true,

@@ -9,6 +9,11 @@ a {
   outline: none;
 }
 
+button,
+.terms-and-conditions {
+  margin: 10px 0 0 0;
+}
+
 .active-btn {
   color: var(--second-color) !important;
   font-weight: 700;
@@ -101,6 +106,7 @@ h1 {
 a:hover {
   transition: 150ms;
   color: var(--fourth-color);
+  cursor: pointer;
 }
 
 li {
@@ -421,7 +427,6 @@ form>input {
 }
 
 button {
-  margin: 10px 0 0 0;
   padding: 10px 25px;
   color: var(--first-color);
   background-color: var(--second-color);
@@ -456,7 +461,7 @@ form>input {
 }
 
 .terms-and-conditions {
-  margin: 10px 0 0 0;
+
   text-align: center;
   color: var(--fourth-color);
 }
@@ -465,6 +470,88 @@ form>input {
   display: flex;
   justify-content: end;
   margin: 5px 0 0 0;
+}
+
+.footer-flex {
+  width: 100%;
+  height: 300px;
+  background-color: #121212;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 200px;
+}
+
+.footer-about {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.footer-nav>h2 {
+  color: var(--first-color);
+}
+
+.about-1>li,
+.about-2>li {
+  margin: 0 0 5px 0;
+}
+
+.about-1 {
+  margin: 0 15px 0 0;
+}
+
+.about-1,
+.about-2 {
+  display: block;
+}
+
+.copyright {
+  color: #9A9A9A;
+  font-size: 12px;
+  padding: 50px 0 0 0
+}
+
+.footer-social>h2 {
+  color: var(--first-color);
+}
+
+.footer-logo-hubium {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--second-color);
+  width: 100%;
+  height: 36px;
+}
+
+footer {
+  margin: 100px 0 0 0;
+}
+
+a>svg {
+  display: flex;
+  align-items: center;
+}
+
+.social-media-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-media-icons>li {
+  padding: 20px 10px 0 0;
+}
+
+.social-media-icons>li>a:hover,
+.footer-about>ul>li>a:hover {
+  transition: 150ms;
+  color: var(--hover);
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -511,7 +598,9 @@ form>input {
 }
 
 @media(max-width: 425px) {
-
+  .footer-social {
+    display: none;
+  }
 
   h1 {
     text-align: center;
@@ -554,6 +643,10 @@ form>input {
 @media (max-width: 1024px) {
   .profile-icon {
     display: none !important;
+  }
+
+  .footer-nav {
+    margin: 0;
   }
 
   .sign {
