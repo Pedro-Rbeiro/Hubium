@@ -1,3 +1,20 @@
-<img class="album-cover" src="/img/covers/most-wanted-vol1.jpg" alt="">
-<h2 class="font-size16"> Most Wanted vol.1</h2>
-<h2 class="font-size14 regular400">BVNDIT</h2>
+<div class="music-flex">
+  <div id="music-container" class="music-container">
+    <div class="music-content">
+      <img class="album-cover" src="/img/covers/most-wanted-vol1.jpg" alt="">
+      <div class="music-info">
+        <h2 class="font-size28"> Most Wanted vol.1</h2>
+        <h2 class="font-size24 regular400">BVNDIT</h2>
+      </div>
+
+    </div>
+
+    <div class="embed-flex">
+      <div class="embed-content">
+        <div id="embed-iframe" class="spotify-embed"></div> {{!-- container do embed api --}}
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/public/js/spotifyApi.bundle.min.js"></script> {{!-- Script do embed--}}
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script> {{!-- Spotify embed api --}}

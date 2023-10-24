@@ -3,6 +3,7 @@ module.exports = {
   entry: {
     home: path.resolve(__dirname, 'src/static/public/js/home.js'),
     slick: path.resolve(__dirname, 'src/static/public/js/slick.js'),
+    spotifyApi: path.resolve(__dirname, 'src/static/public/js/spotifyApi.js')
   },
   mode: 'production', //Modo de execução (production ou development)
   output: {
