@@ -26,10 +26,16 @@ app.use(express.static(__dirname + '/src/static'))
 app.get('/', (req, res) => {
   res.render('home', { title: "Inicio" })
 })
+
 app.get('/register', (req, res) => {
   res.render('register', { title: "Cadastro" })
 })
+
 app.get('/login', (req, res) => {
   res.render('login', { title: "Login" })
+})
+
+app.get('/music', (req, res) => {
+  res.render('musicPage', { title: 'Music' })
 })
 app.listen(port)

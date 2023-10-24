@@ -60,7 +60,7 @@ button,
 }
 
 .loaded {
-  animation: fadeIn 2s;
+  animation: fadeIn 1s;
 }
 
 .deactivated {
@@ -336,6 +336,10 @@ label {
   margin: 15px 0 0 0;
 }
 
+.carousel-links {
+  color: var(--fourth-color);
+}
+
 .carousel-container>.carousel-itens {
   margin: 0 40px 0 0;
 }
@@ -351,7 +355,7 @@ label {
 
 .flex-promote {
   width: 100%;
-  padding: 50px 0 0 0;
+  padding: 60px 0 0 0;
   display: flex;
   justify-content: center;
   background-color: #333333;
@@ -365,7 +369,7 @@ label {
   width: 100%;
 }
 
-.carousel-itens>img {
+.album-cover {
   width: 200px;
   height: 200px
 }
@@ -570,7 +574,7 @@ a>svg {
     width: 100px;
   }
 
-  .carousel-itens>img {
+  .album-cover {
     width: 150px;
     height: 150px
   }

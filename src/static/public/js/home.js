@@ -6,8 +6,8 @@ window.onload = () => {
 
     setTimeout(() => {
       document.getElementById('section-flex').removeChild(loadingScreen)
-    }, 2000);
-  }, 3000);
+    }, 1000);
+  }, 2000);
 }
 
 const colors = [
