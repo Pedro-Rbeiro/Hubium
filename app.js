@@ -37,10 +37,17 @@ app.get('/login', (req, res) => {
 
 app.get('/music', (req, res) => {
   const musicName = 'Most Wanted vol.1' //Request music name from db
-  res.render('musicPage', { title: musicName})
+  res.render('musicPage', { title: musicName })
 })
 
-app.get('/results',(req,res)=> {
-  res.render('searchPage', {title: "search"})
+app.get('/results', (req, res) => {
+  res.render('searchPage', { title: "search" })
+})
+
+app.get('/highlights', (req, res) => {
+  res.render('highlight', { title: "Highlights" })
+})
+app.get('/library', (req, res) => {
+  res.render('library', { title: "Library" })
 })
 app.listen(port)
