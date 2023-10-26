@@ -7,4 +7,5 @@ window.onSpotifyIframeApiReady = (IFrameAPI) => {
     console.log(EmbedController)
   };
   IFrameAPI.createController(element, options, callback)
+
 };
