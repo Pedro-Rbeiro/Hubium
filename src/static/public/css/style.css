@@ -219,7 +219,8 @@ label {
   color: var(--fourth-color);
   background-color: var(--first-color);
   border-radius: 0 5px 5px 0;
-
+  padding: 0;
+  margin: 0; 
   height: 25px;
   width: 25px;
   align-items: center;
@@ -401,9 +402,12 @@ form {
   color: var(--fourth-color);
 }
 
-form>input[type="text"],
+/* form>input[type="text"],
 form>input[type="email"] {
   margin: 0 0 15px 0;
+} */
+.search>form{
+  padding: 0
 }
 
 input[type="text"],
@@ -566,6 +570,22 @@ a>svg {
   display: flex;
   justify-content: center;
   margin: 100px;
+  width: 100%;
+  padding: 50px 100px;
+  border-radius: 10px;
+  flex-direction: column;
+  background-color: #121212;
+}
+.search-flex {
+  display: flex;
+  padding: 60px 0 0 0;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 100px;
   width: 100%;
   padding: 50px 100px;
   border-radius: 10px;

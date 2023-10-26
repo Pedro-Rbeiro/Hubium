@@ -70,13 +70,16 @@
           </h1>
 
           <li class="search">
-            <input class="search-input" placeholder="Pesquisar" type="text">
+            <form action="/results" method="get">
+            <input name="search" class="search-input" placeholder="Pesquisar" type="text">
+
           </li>
-          <a id="search-btn" href="">
+          <button type="submit" id="search-btn" href="">
             <span class="material-symbols-outlined">
               search
             </span>
-          </a>
+          </button>
+          </form>
       </ul>
     </div>
     </div>

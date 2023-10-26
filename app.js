@@ -36,6 +36,11 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/music', (req, res) => {
-  res.render('musicPage', { title: 'Music' })
+  const musicName = 'Most Wanted vol.1' //Request music name from db
+  res.render('musicPage', { title: musicName})
+})
+
+app.get('/results',(req,res)=> {
+  res.render('searchPage', {title: "search"})
 })
 app.listen(port)
