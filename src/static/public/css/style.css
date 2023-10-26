@@ -592,7 +592,16 @@ a>svg {
   flex-direction: column;
   background-color: #121212;
 }
-
+.likes-container{
+  display: flex;
+  color: var(--first-color);
+}
+.favorite-symbol{
+  display: flex !important;
+  align-items: center !important; 
+  font-size: 18px !important;
+  color: #6700b6 !important;
+}
 @keyframes fadeIn {
   100% {
     opacity: 0;
