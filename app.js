@@ -36,12 +36,16 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/music', (req, res) => {
+  res.clearCookie("musicId");
+  res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA')
   const musicName = 'Most Wanted vol.1' //Request music name from db
   res.render('musicPage', { title: musicName })
 })
 
 app.get('/results', (req, res) => {
+
   res.render('searchPage', { title: "search" })
+
 })
 
 app.get('/highlights', (req, res) => {

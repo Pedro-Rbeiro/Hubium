@@ -1,7 +1,13 @@
+let musicId = document.cookie.split(`; `)
+musicId = musicId[0].split('=').pop()
+musicId = JSON.stringify(musicId)
+musicId = JSON.parse(musicId)
+musicId = decodeURIComponent(musicId)
+
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
   const element = document.getElementById('embed-iframe');
   const options = {
-    uri: 'spotify:album:4I2o6s3EGpcIg64kQ1T75O'
+    uri: `spotify:album:${musicId}`
   };
   const callback = (EmbedController) => {
     console.log(EmbedController)
