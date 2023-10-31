@@ -19,12 +19,16 @@
   },
   "homepage": "https://github.com/Pedro-Rbeiro/Hubium#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "jquery": "^3.7.1",
     "jsdom": "^22.1.0",
+    "mysql2": "^3.6.2",
     "nodemon": "^3.0.1",
     "path": "^0.12.7",
+    "sequelize": "^6.33.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
