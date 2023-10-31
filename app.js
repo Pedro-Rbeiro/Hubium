@@ -1,57 +1,36 @@
-const express = require('express')
+const express = require('express');
 const port = 3000;
-const exphbs = require('express-handlebars')
-const path = require('path')
-const app = express()
+const exphbs = require('express-handlebars');
+const path = require('path');
+const app = express();
+const conn = require('./src/db/conn');
+const routes = require('./src/routes');
 
 app.use(
   express.urlencoded({
     extended: true,
-  }),
-)
+  })
+);
 // importar JSON
 app.use(express.json());
 
 const hbs = exphbs.create({
-  partialsDir: [path.join(__dirname, '/src/views/partials')]
-})
+  partialsDir: [path.join(__dirname, '/src/views/partials')],
+});
 
 app.set('views', path.join(__dirname, '/src/views'));
-app.engine('handlebars', hbs.engine)
-app.set('view engine', 'handlebars')
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-app.use(express.static(__dirname + '/src/static'))
+app.use(express.static(__dirname + '/src/static'));
 
-// Endpoints
-app.get('/', (req, res) => {
-  res.render('home', { title: "Inicio" })
-})
+app.use(routes);
 
-app.get('/register', (req, res) => {
-  res.render('register', { title: "Cadastro" })
-})
-
-app.get('/login', (req, res) => {
-  res.render('login', { title: "Login" })
-})
-
-app.get('/music', (req, res) => {
-  res.clearCookie("musicId");
-  res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA')
-  const musicName = 'Most Wanted vol.1' //Request music name from db
-  res.render('musicPage', { title: musicName })
-})
-
-app.get('/results', (req, res) => {
-
-  res.render('searchPage', { title: "search" })
-
-})
-
-app.get('/highlights', (req, res) => {
-  res.render('highlight', { title: "Highlights" })
-})
-app.get('/library', (req, res) => {
-  res.render('library', { title: "Library" })
-})
-app.listen(port)
+conn
+  .sync({ force: true })
+  .then(() => {
+    app.listen(port);
+  })
+  .catch((error) => {
+    console.log('Não foi possível a conexão com a base:', error);
+  });

@@ -65,22 +65,26 @@
     <div class="new-songs">
       <h1 class="medium500 font-size28">Biblioteca</h1>
       <div class="top10-week">
-        <h1 class="medium500 font-size16">SUAS FAIXAS FAVORITAS</h1>
-        <div id="carousel" class="carousel-container">
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-        </div>
-        <div class="see-more-flex">
-          <a class="see-more" href="/library">ver mais ></a>
-        </div>
+        {{#if user}}
+          <h1 class="medium500 font-size16">SUAS FAIXAS FAVORITAS</h1>
+          <div id="carousel" class="carousel-container">
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+              {{> carousel}}
+          </div>
+          <div class="see-more-flex">
+            <a class="see-more" href="/library">ver mais ></a>
+          </div>
+        {{else}}
+          <h2>Cadastrar-se ou faça login para acessar essa página</h2>
+        {{/if}}
       </div>
     </div>
   </div>
