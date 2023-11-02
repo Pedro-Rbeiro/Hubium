@@ -697,6 +697,14 @@ a>svg {
   grid-row-gap: 0px;
 }
 
+.terms-container {
+  padding: 100px 60px;
+}
+
+.terms-container>ul {
+  display: block;
+}
+
 @keyframes fadeIn {
   100% {
     opacity: 0;
