@@ -40,7 +40,7 @@ button,
 }
 
 .font-size16 {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 .font-size18 {
@@ -60,7 +60,17 @@ button,
 }
 
 .loaded {
-  animation: fadeIn 1s;
+  animation: fadeOut 1s;
+}
+
+.hidden {
+  animation: fadeIn 10ms;
+  display: none;
+}
+
+.shown {
+  animation: fadeIn 500ms;
+  display: block;
 }
 
 .deactivated {
@@ -93,6 +103,11 @@ ul,
 .music-content,
 .logo-hubium {
   display: flex;
+}
+
+.logo-hubium {
+  height: 100%;
+  align-items: center;
 }
 
 .music-tags-li {
@@ -432,6 +447,7 @@ form>input[type="email"] {
   padding: 0
 }
 
+select,
 input[type="text"],
 input[type="email"] {
   text-overflow: ellipsis;
@@ -439,7 +455,8 @@ input[type="email"] {
   white-space: nowrap;
 }
 
-form>input {
+form>input,
+select {
   padding: 0 10px;
 
   border: 1px solid var(--fourth-color);
@@ -467,10 +484,15 @@ button:hover {
   background-color: var(--hover);
 }
 
-form>input {
+form>input,
+select {
   width: 100%;
   height: 40px;
 
+}
+
+span {
+  cursor: pointer;
 }
 
 .active-btn:hover {
@@ -658,7 +680,14 @@ a>svg {
   color: var(--first-color);
 }
 
-.favorite-symbol {
+.spotify-link-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.favorite-symbol,
+.help-symbol {
   display: flex !important;
   align-items: center !important;
   font-size: 18px !important;
@@ -705,13 +734,48 @@ a>svg {
   display: block;
 }
 
-@keyframes fadeIn {
+.help-container {
+  border: 1px solid var(--fourth-color);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--fourth-color);
+  position: absolute;
+  background-color: var(--first-color);
+
+}
+
+.close-modal {
+  display: flex !important;
+  width: 100%;
+  justify-content: end !important;
+}
+
+.tags {
+  display: flex;
+}
+
+label,
+#help-btn {
+  margin: 10px 0 0 0;
+}
+
+@keyframes fadeOut {
   100% {
     opacity: 0;
   }
 
   0% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 0;
   }
 }
 

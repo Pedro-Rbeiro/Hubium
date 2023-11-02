@@ -33,5 +33,7 @@ router.get('/highlights', (req, res) => {
 router.get('/library', (req, res) => {
   res.render('library', { title: 'Library' });
 });
-
+router.get('/promote-projects', (req, res) => {
+  res.render('promoteProject', { title: 'Promote Projects' })
+})
 module.exports = router;

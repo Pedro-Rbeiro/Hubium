@@ -1,0 +1,61 @@
+<div class="form-container">
+  <div class="form-content">
+    <div class="form-nav font-size24">
+
+      <h1 class="font-size28">Promova seus projetos com a Hubium!</h1>
+    </div>
+    <form action="/register/create" method="post">
+      <label class="" for="">Nome da musica: </label>
+      <input name="name" type="text" placeholder="Nome:">
+      <label for="">Album ou single?</label>
+      <select name="" id="">
+        <option value="">Album</option>
+        <option value="">Single</option>
+      </select>
+      <div class="spotify-link-container">
+        <label for="">Link da musica no Spotify: </label>
+        <span id="help-btn" class="help-symbol font-size16 material-symbols-outlined">
+          help
+        </span>
+        <div id="help-modal" class="hidden help-container">
+          <span id="close-modal" class="close-modal material-symbols-outlined">
+            close
+          </span>
+          <h3>Copie exatamente esse link:</h3>
+          <img src="/img/help.png" alt="">
+
+        </div>
+      </div>
+
+      <input name="email" type="email" placeholder="Email:">
+
+      <label for="">Selecione até 3 tags: </label>
+      <div class="tags">
+        <select name="" id="">
+          {{!-- Genero --}}
+          <option value="">Album</option>
+          <option value="">Single</option>
+        </select>
+        <select name="" id="">
+          {{!-- Subgenero --}}
+          <option value="">Album</option>
+          <option value="">Single</option>
+        </select>
+        <select name="" id="">
+          {{!-- Subgenero --}}
+          <option value="">Album</option>
+          <option value="">Single</option>
+        </select>
+      </div>
+      <p class="font-size14 terms-and-conditions">Ao se registrar você concorda com a nossa
+        <span><a class="active-btn" href="/termsnconditions">politicas de
+            privacidade</a></span> e nosso
+        <span><a class="active-btn" href="/termsnconditions">termos de uso</a></span>
+      </p>
+      <div class="submit-btn">
+        <button class="bold700" type="submit">Criar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/public/js/promote.bundle.min.js"></script>
