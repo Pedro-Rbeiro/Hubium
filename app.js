@@ -5,6 +5,15 @@ const path = require('path');
 const app = express();
 const conn = require('./src/db/conn');
 const routes = require('./src/routes');
+const session = require('express-session');
+
+app.use(
+  session({
+    secret: 'whoisinparis@#$_*(¨$!',
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 app.use(
   express.urlencoded({
