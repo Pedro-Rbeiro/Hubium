@@ -3,10 +3,10 @@ const router = express.Router();
 
 const userController = require('./controllers/userController.js');
 const userMiddlewares = require('./middlewares/userMiddlewares.js');
+const musicController = require('./controllers/musicController.js');
+const homeController = require('./controllers/homeController.js');
 
-router.get('/', (req, res) => {
-  res.render('home', { title: 'Inicio' });
-});
+router.get('/', homeController.home);
 
 router.get('/register', userController.registerPage);
 
@@ -15,6 +15,8 @@ router.get('/login', userController.loginPage);
 router.post('/register/create', userMiddlewares.valData, userController.createUser);
 
 router.get('/login/get', userMiddlewares.valData, userController.findUser);
+
+router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
 
 router.get('/music', (req, res) => {
   res.clearCookie('musicId');
@@ -33,7 +35,7 @@ router.get('/highlights', (req, res) => {
 router.get('/library', (req, res) => {
   res.render('library', { title: 'Library' });
 });
-router.get('/promote-projects', (req, res) => {
-  res.render('promoteProject', { title: 'Promote Projects' })
-})
+// router.get('/promote-projects', (req, res) => {
+//   res.render('promoteProject', { title: 'Promote Projects' })
+// })
 module.exports = router;
