@@ -1,5 +1,4 @@
 const { hash, compare } = require('bcrypt');
-
 const userModel = require('../models/User');
 
 const registerPage = (_req, res) => {
@@ -18,8 +17,8 @@ const createUser = async (req, res) => {
   };
 
   await userModel.createUser(userData);
-
-  return res.status(201).redirect('/');
+  
+  return res.status(201).redirect('/login');
 };
 
 const loginPage = (_req, res) => {
@@ -34,7 +33,9 @@ const findUser = async (req, res) => {
 
   compare(password, user.password, (err, results) => {
     if (results) {
-			return res.render('home', { user: results });
+      req.session.user = true;
+      req.session.userData = user;
+      return res.redirect('/');
 		} else {
 			return res.status(200).send({ mensage: 'Usuário não encotrado' })
 		}

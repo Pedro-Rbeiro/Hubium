@@ -1,6 +1,10 @@
 const db = require('../db/conn');
 const { DataTypes } = require('sequelize');
 
+const { Music } = require('./Music');
+const { MusicLibrary } = require('./MusicLibrary');
+const { LikedMusic } = require('./LikedMusic');
+
 const User = db.define('user', {
   name: {
     type: DataTypes.STRING,
@@ -16,6 +20,32 @@ const User = db.define('user', {
   },
 });
 
+Music.belongsTo(User);
+
+User.belongsToMany(Music, {
+  through: {
+    model: MusicLibrary,
+  },
+});
+
+Music.belongsToMany(User, {
+  through: {
+    model: MusicLibrary,
+  },
+});
+
+User.belongsToMany(Music, {
+  through: {
+    model: LikedMusic,
+  },
+});
+
+Music.belongsToMany(User, {
+  through: {
+    model: LikedMusic,
+  },
+});
+
 const createUser = async (data) => {
   await User.create(data);
 };
@@ -25,6 +55,7 @@ const findUser = async (email) => {
 };
 
 module.exports = {
+  User,
   createUser,
   findUser,
 };
