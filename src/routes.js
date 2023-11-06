@@ -18,6 +18,8 @@ router.get('/login/get', userMiddlewares.valData, userController.findUser);
 
 router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
 
+router.post('/promote-projects/post', musicController.postProjetc);
+
 router.get('/music', (req, res) => {
   res.clearCookie('musicId');
   res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');

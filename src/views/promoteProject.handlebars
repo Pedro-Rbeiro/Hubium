@@ -4,13 +4,13 @@
 
       <h1 class="font-size28">Promova seus projetos com a Hubium!</h1>
     </div>
-    <form action="/register/create" method="post">
+    <form action="/promote-projects/post" method="post">
       <label class="" for="">Nome da musica: </label>
       <input name="name" type="text" placeholder="Nome:">
       <label for="">Album ou single?</label>
       <select name="type" id="">
-        <option value="">Album</option>
-        <option value="">Single</option>
+        <option value="album">Album</option>
+        <option value="single ">Single</option>
       </select>
       <div class="spotify-link-container">
         <label for="">Link da musica no Spotify: </label>
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <input name="email" type="email" placeholder="Email:">
+      <input name="link" type="text" placeholder="Link:">
 
       <label for="">Selecione até 3 tags: </label>
       <div class="tags">
@@ -52,10 +52,12 @@
             privacidade</a></span> e nosso
         <span><a class="active-btn" href="/termsnconditions">termos de uso</a></span>
       </p>
+      <input type="hidden" value="{{userID}}" name="userId">
       <div class="submit-btn">
-        <button class="bold700" type="submit">Criar</button>
+        <button id="subimit-btn" class="bold700" type="submit" disabled>Criar</button>
       </div>
     </form>
   </div>
 </div>
-<script src="/public/js/promote.bundle.min.js"></script>
+<script src="/public/js/promote_page.bundle.min.js"></script>
+<script src="/public/js/getMusicData.js"></script>
