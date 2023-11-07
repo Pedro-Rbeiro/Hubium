@@ -40,11 +40,14 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
     } else {
       const data = await response.json();
       document.querySelector('input[name="link"]').classList.remove('error')
-      console.log(data.images[0].url);
 
       document.getElementById("subimit-btn").disabled = false;
+      
+      document.querySelector('input[name="link_photo"]').value = data.images[1].url;
 
-      return data;
+      document.querySelector('input[name="qtdmsc"]').value = data.total_tracks;
+      
+      return 
     }
   });
 });
