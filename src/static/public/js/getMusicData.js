@@ -19,7 +19,6 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
   getToken().then(async () => {
     const uri = document.querySelector('input[name="link"]').value;
     const type = document.querySelector('select[name="type"').value
-    console.log("🚀 ~ file: getMusicData.js:22 ~ getToken ~ type:", type)
     const url = `https://api.spotify.com/v1/${type}${uri}`;
 
     let options = {
@@ -36,7 +35,6 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
       return;
     } else {
       const data = await response.json();
-      console.log("🚀 ~ file: getMusicData.js:37 ~ getToken ~ data:", data)
 
       document.querySelector('input[name="link"]').classList.remove('error')
 
