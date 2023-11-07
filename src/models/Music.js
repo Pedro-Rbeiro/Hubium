@@ -18,6 +18,10 @@ const Music = db.define("music", {
     type: DataTypes.STRING,
     required: true,
   },
+  qtdmsc: {
+    type: DataTypes.INTEGER,
+    required: true, 
+  }
 });
 
 Music.belongsToMany(Tag, {

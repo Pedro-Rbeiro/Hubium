@@ -4,7 +4,7 @@ const router = express.Router();
 const userController = require('./controllers/userController.js');
 const userMiddlewares = require('./middlewares/userMiddlewares.js');
 const musicController = require('./controllers/musicController.js');
-const homeController = require('./controllers/homeController.js');
+const homeController = require('./controllers/homeController.js');  
 
 router.get('/', homeController.home);
 
@@ -20,26 +20,39 @@ router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
 
 router.post('/promote-projects/post', musicController.postProjetc);
 
-router.get('/music', (req, res) => {
-  res.clearCookie('musicId');
-  res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');
-  const musicName = 'Most Wanted vol.1'; //Request music name from db
-  res.render('musicPage', { title: musicName });
-});
+router.get('/music', musicController.getMusicPage);
 
-router.get('/results', (req, res) => {
-  res.render('searchPage', { title: 'search' });
-});
+router.get('/highlights', musicController.getHighlight);
 
-router.get('/highlights', (req, res) => {
-  res.render('highlight', { title: 'Highlights' });
-});
-router.get('/library', (req, res) => {
-  res.render('library', { title: 'Library' });
-});
-router.get('/profile', (req, res) => {
-  res.render('profile', { title: 'Profile', });
-})
+router.get('/library', musicController.getLibrary);
+
+router.get('/results', musicController.getResults);
+
+router.get('/profile', musicController.getProfile);
+
+// router.get('/music', (req, res) => {
+//   res.clearCookie('musicId');
+//   res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');
+//   const musicName = 'Most Wanted vol.1'; //Request music name from db
+//   res.render('musicPage', { title: musicName });
+// });
+
+// router.get('/highlights', (req, res) => {
+//   res.render('highlight', { title: 'Highlights' });
+// });
+
+// router.get('/library', (req, res) => {
+//   res.render('library', { title: 'Library' });
+// });
+
+// router.get('/results', (req, res) => {
+//   res.render('searchPage', { title: 'search' });
+// });
+
+// router.get('/profile', (req, res) => {
+//   res.render('profile', { title: 'Profile', });
+// })
+
 // router.get('/promote-projects', (req, res) => {
 //   res.render('promoteProject', { title: 'Promote Projects' })
 // })
