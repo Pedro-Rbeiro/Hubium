@@ -4,7 +4,7 @@ const router = express.Router();
 const userController = require('./controllers/userController.js');
 const userMiddlewares = require('./middlewares/userMiddlewares.js');
 const musicController = require('./controllers/musicController.js');
-const homeController = require('./controllers/homeController.js');  
+const homeController = require('./controllers/homeController.js');
 
 router.get('/', homeController.home);
 
@@ -28,8 +28,14 @@ router.get('/library', musicController.getLibrary);
 
 router.get('/results', musicController.getResults);
 
-router.get('/profile', musicController.getProfile);
+router.get('/profile-data', musicController.getProfile);
 
+router.get('/profile-data/projects', (req, res) => {
+  res.render('profile-projects', { title: 'Projetos' })
+})
+router.get('/profile-data/library', (req, res) => {
+  res.render('profile-favorite', { title: 'Favoritos' })
+})
 // router.get('/music', (req, res) => {
 //   res.clearCookie('musicId');
 //   res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');

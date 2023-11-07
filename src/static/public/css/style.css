@@ -14,9 +14,23 @@ button,
   margin: 10px 0 0 0;
 }
 
+aside {
+  user-select: none;
+  min-width: 300px;
+}
+
 .active-btn {
   color: var(--second-color) !important;
-  font-weight: 700;
+  font-weight: 700 !important;
+}
+
+.black-icons {
+  border-color: var(--fourth-color) !important;
+  color: var(--fourth-color) !important;
+}
+
+.color-black {
+  color: var(--fourth-color);
 }
 
 .regular400 {
@@ -78,14 +92,24 @@ button,
   top: -200px;
 }
 
+.active-page {
+  color: var(--second-color) !important;
+  font-weight: 700 !important;
+}
+
+.active-icon {
+  border-color: var(--second-color) !important;
+}
+
 .active {
   top: 60px;
 }
 
-.error{
+.error {
   transition: 100ms;
   border: 1px solid #ff0000 !important;
 }
+
 :root {
   --first-color: #FFFFFF;
   --second-color: #8F00FF;
@@ -104,7 +128,6 @@ body {
 
 }
 
-ul,
 .music-content,
 .logo-hubium {
   display: flex;
@@ -342,6 +365,10 @@ label {
   padding: 25px 100px 0 100px;
 }
 
+.profile-page-container {
+  padding: 80px 100px 0 100px;
+}
+
 .new-songs {
   margin: 20px 0 0 0;
 }
@@ -398,7 +425,16 @@ label {
   background-color: #333333;
 }
 
-.carousel-container::after {
+.aside-flex>li {
+  content: "";
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--separator);
+  width: 100%;
+}
+
+.carousel-container::after,
+.my-account {
   content: "";
   display: flex;
   padding: 5px 0 10px 0;
@@ -789,6 +825,24 @@ button[disabled] {
   background-color: #cccccc;
   color: #666666;
 }
+
+.profile-flex {
+  display: flex;
+  margin: 25px 0 0 0;
+}
+
+.aside-flex {
+  border: 1px solid var(--separator);
+  border-radius: 10px;
+  padding: 20px;
+
+}
+
+.aside-flex>li>a {
+  display: flex;
+  align-items: center !important;
+}
+
 
 @keyframes fadeOut {
   100% {
