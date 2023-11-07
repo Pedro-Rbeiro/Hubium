@@ -8,9 +8,7 @@
 a {
   outline: none;
 }
-.error{
-  border: 1px solid #ff0000 !important;
-}
+
 button,
 .terms-and-conditions {
   margin: 10px 0 0 0;
@@ -84,6 +82,10 @@ button,
   top: 60px;
 }
 
+.error{
+  transition: 100ms;
+  border: 1px solid #ff0000 !important;
+}
 :root {
   --first-color: #FFFFFF;
   --second-color: #8F00FF;

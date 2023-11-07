@@ -20,8 +20,6 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
     const uri = document.querySelector('input[name="link"]').value;
     const url = `https://api.spotify.com/v1/albums${uri}`;
 
-    console.log(token);
-
     let options = {
       method: "GET",
       headers: {
@@ -29,16 +27,15 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
       },
     };
 
-    console.log(token);
-    const response = await fetch(url, options).catch((err) => {
-      console.log(err);
-    });
+    const response = await fetch(url, options)
     if (!response.ok) {
       document.getElementById("subimit-btn").disabled = true;
       document.querySelector('input[name="link"]').classList.add('error')
       return;
     } else {
       const data = await response.json();
+      console.log("🚀 ~ file: getMusicData.js:37 ~ getToken ~ data:", data)
+      
       document.querySelector('input[name="link"]').classList.remove('error')
 
       document.getElementById("subimit-btn").disabled = false;

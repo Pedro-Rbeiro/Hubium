@@ -4,7 +4,8 @@ module.exports = {
     home: path.resolve(__dirname, 'src/static/public/js/home.js'),
     slick: path.resolve(__dirname, 'src/static/public/js/slick.js'),
     spotifyApi: path.resolve(__dirname, 'src/static/public/js/spotifyApi.js'),
-    promote_page: path.resolve(__dirname, 'src/static/public/js/promote.js')
+    promote_page: path.resolve(__dirname, 'src/static/public/js/promote.js'),
+    getMusicData: path.resolve(__dirname, 'src/static/public/js/getMusicData.js')
   },
   mode: 'production', //Modo de execução (production ou development)
   output: {
