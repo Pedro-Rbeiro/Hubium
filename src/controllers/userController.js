@@ -2,7 +2,7 @@ const { hash, compare } = require('bcrypt');
 const userModel = require('../models/User');
 
 const registerPage = (_req, res) => {
-  return res.render('register', { title: 'Cadastro' });
+  return res.render('register', { title: 'Cadastro', layout: 'min-header' });
 };
 
 const createUser = async (req, res) => {
@@ -17,12 +17,12 @@ const createUser = async (req, res) => {
   };
 
   await userModel.createUser(userData);
-  
+
   return res.status(201).redirect('/login');
 };
 
 const loginPage = (_req, res) => {
-  res.render('login', { title: 'Login' });
+  res.render('login', { title: 'Login', layout: 'min-header' });
 };
 
 const findUser = async (req, res) => {
@@ -36,9 +36,9 @@ const findUser = async (req, res) => {
       req.session.user = true;
       req.session.userData = user;
       return res.redirect('/');
-		} else {
-			return res.status(200).send({ mensage: 'Usuário não encotrado' })
-		}
+    } else {
+      return res.status(200).send({ mensage: 'Usuário não encotrado' })
+    }
   });
 
 };

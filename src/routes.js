@@ -35,6 +35,9 @@ router.get('/highlights', (req, res) => {
 router.get('/library', (req, res) => {
   res.render('library', { title: 'Library' });
 });
+router.get('/profile', (req, res) => {
+  res.render('profile', { title: 'Profile', });
+})
 // router.get('/promote-projects', (req, res) => {
 //   res.render('promoteProject', { title: 'Promote Projects' })
 // })
