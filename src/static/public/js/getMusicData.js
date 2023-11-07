@@ -18,7 +18,8 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
   }
   getToken().then(async () => {
     const uri = document.querySelector('input[name="link"]').value;
-    const url = `https://api.spotify.com/v1/albums${uri}`;
+    const type = document.querySelector('select[name="type"]').value;
+    const url = `https://api.spotify.com/v1/${type}${uri}`;
 
     let options = {
       method: "GET",
@@ -34,16 +35,16 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
       return;
     } else {
       const data = await response.json();
-      
+
       document.querySelector('input[name="link"]').classList.remove('error')
 
       document.getElementById("subimit-btn").disabled = false;
-      
+
       document.querySelector('input[name="link_photo"]').value = data.images[1].url;
 
       document.querySelector('input[name="qtdmsc"]').value = data.total_tracks;
-      
-      return 
+
+      return
     }
   });
 });
