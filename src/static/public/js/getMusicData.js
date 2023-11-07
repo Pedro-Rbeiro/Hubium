@@ -34,7 +34,6 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
       return;
     } else {
       const data = await response.json();
-      console.log("🚀 ~ file: getMusicData.js:37 ~ getToken ~ data:", data)
       
       document.querySelector('input[name="link"]').classList.remove('error')
 
