@@ -40,7 +40,10 @@ router.get('/library', (req, res) => {
 router.get('/profile', (req, res) => {
   res.render('profile', { title: 'Profile', });
 })
-// router.get('/promote-projects', (req, res) => {
-//   res.render('promoteProject', { title: 'Promote Projects' })
-// })
+router.get('/promote-projects', (req, res) => {
+  res.redirect('/login')
+})
+router.get('*', (req, res) => {
+  res.render('404')
+})
 module.exports = router;

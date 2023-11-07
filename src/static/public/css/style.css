@@ -82,10 +82,11 @@ button,
   top: 60px;
 }
 
-.error{
+.error {
   transition: 100ms;
   border: 1px solid #ff0000 !important;
 }
+
 :root {
   --first-color: #FFFFFF;
   --second-color: #8F00FF;
@@ -340,6 +341,10 @@ label {
 
 .container {
   padding: 25px 100px 0 100px;
+}
+
+.profile-page-container {
+  padding: 60px 100px 0 100px;
 }
 
 .new-songs {
