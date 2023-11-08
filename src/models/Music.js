@@ -26,7 +26,7 @@ const Music = db.define('music', {
   artist: {
     type: DataTypes.STRING,
     required: true,
-  }
+  },
 });
 
 Music.belongsToMany(Tag, {
@@ -51,8 +51,13 @@ const getAllMusic = async () => {
   return await Music.findAll({ raw: true });
 };
 
+const getMusic = async (id) => {
+  return await Music.findOne({ where: { id: id }, raw: true });
+};
+
 module.exports = {
   Music,
   createProject,
   getAllMusic,
+  getMusic,
 };
