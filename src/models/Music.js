@@ -3,7 +3,6 @@ const { DataTypes } = require('sequelize');
 
 const { MusicTag } = require('./MusicTag');
 const Tag = require('./Tag');
-const { Album } = require('./Album');
 const { User } = require('../models/User');
 
 const Music = db.define('music', {
@@ -41,8 +40,6 @@ Tag.belongsToMany(Music, {
   },
 });
 
-Music.hasMany(Album);
-
 const createProject = async (data) => {
   await Music.create(data);
 };
@@ -55,9 +52,14 @@ const getMusic = async (id) => {
   return await Music.findOne({ where: { id: id }, raw: true });
 };
 
+const findMusicLink = async (link) => {
+  return await Music.findOne({where: {link: link}, raw: true});
+}
+
 module.exports = {
   Music,
   createProject,
   getAllMusic,
   getMusic,
+  findMusicLink,
 };
