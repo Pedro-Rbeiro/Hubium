@@ -20,32 +20,33 @@ const User = db.define('user', {
   },
 });
 
+
+User.belongsToMany(Music, {
+  through: {
+    model: MusicLibrary,
+  },
+});
+
+Music.belongsToMany(User, {
+  through: {
+    model: MusicLibrary,
+  },
+});
+
+User.belongsToMany(Music, {
+  through: {
+    model: LikedMusic,
+  },
+});
+
+Music.belongsToMany(User, {
+  through: {
+    model: LikedMusic,
+  },
+});
+
 Music.belongsTo(User);
 User.hasMany(Music);
-
-User.belongsToMany(Music, {
-  through: {
-    model: MusicLibrary,
-  },
-});
-
-Music.belongsToMany(User, {
-  through: {
-    model: MusicLibrary,
-  },
-});
-
-User.belongsToMany(Music, {
-  through: {
-    model: LikedMusic,
-  },
-});
-
-Music.belongsToMany(User, {
-  through: {
-    model: LikedMusic,
-  },
-});
 
 const createUser = async (data) => {
   await User.create(data);

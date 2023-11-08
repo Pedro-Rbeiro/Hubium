@@ -1,3 +1,5 @@
+const userModel = require('../models/User');
+
 const valData = (req, res, next) => {
   const registerName = req.body.name;
   const registerEmail = req.body.email;
@@ -21,6 +23,19 @@ const valData = (req, res, next) => {
   next();
 };
 
+const valUserEmail = async (req, res, next) => {
+  const emailForm = req.body.email;
+
+  const userEmail = await userModel.findUser(emailForm);
+
+  if (userEmail) {
+    return res.send({mensage: "Usuário já cadastrado com este email"});
+  } else {
+    next();
+  }
+}
+
 module.exports = {
   valData,
+  valUserEmail
 };

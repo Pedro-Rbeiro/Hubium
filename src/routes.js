@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const musicController = require('./controllers/musicController.js');
+const musicMiddlewares = require('./middlewares/musicMiddlewares.js');
 const userController = require('./controllers/userController.js');
 const userMiddlewares = require('./middlewares/userMiddlewares.js');
-const musicController = require('./controllers/musicController.js');
 const homeController = require('./controllers/homeController.js');
 
 router.get('/', homeController.home);
@@ -12,7 +13,7 @@ router.get('/register', userController.registerPage);
 
 router.get('/login', userController.loginPage);
 
-router.post('/register/create', userMiddlewares.valData, userController.createUser);
+router.post('/register/create', userMiddlewares.valData, userMiddlewares.valUserEmail, userController.createUser);
 
 router.get('/login/get', userMiddlewares.valData, userController.findUser);
 
