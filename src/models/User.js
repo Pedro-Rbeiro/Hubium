@@ -21,6 +21,7 @@ const User = db.define('user', {
 });
 
 Music.belongsTo(User);
+User.hasMany(Music);
 
 User.belongsToMany(Music, {
   through: {

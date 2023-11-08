@@ -25,37 +25,21 @@
       <div class="top10-week">
         <h1 class="medium500 font-size16">TOP 10 ALBUNS DA SEMANA</h1>
         <div id="carousel" class="carousel-container">
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
+          {{#each musics}}
+            {{> carousel}}
+          {{/each}}
         </div>
       </div>
     </div>
     <div class="new-songs">
       <h1 class="medium500 font-size28">Destaque</h1>
-
+      
       <div class="top10-week">
         <h1 class="medium500 font-size16">TOP 50 FAIXAS DO MÊS</h1>
         <div id="carousel" class="carousel-container">
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-          {{> carousel}}
-
-
+          {{#each musics}}
+            {{> carousel}}
+          {{/each}}
         </div>
         <div class="see-more-flex">
           <a class="see-more" href="/highlights">ver mais ></a>
@@ -68,16 +52,9 @@
         {{#if user}}
           <h1 class="medium500 font-size16">SUAS FAIXAS FAVORITAS</h1>
           <div id="carousel" class="carousel-container">
+            {{#each musics}}
               {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
-              {{> carousel}}
+            {{/each}}
           </div>
           <div class="see-more-flex">
             <a class="see-more" href="/library">ver mais ></a>

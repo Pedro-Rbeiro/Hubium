@@ -28,7 +28,7 @@ router.get('/library', musicController.getLibrary);
 
 router.get('/results', musicController.getResults);
 
-router.get('/profile-data', musicController.getProfile);
+router.get('/profile', musicController.getProfile);
 
 router.get('/profile-data/projects', (req, res) => {
   res.render('profile-projects', { title: 'Projetos' })

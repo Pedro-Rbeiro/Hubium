@@ -1,11 +1,12 @@
-const db = require("../db/conn");
-const { DataTypes } = require("sequelize");
+const db = require('../db/conn');
+const { DataTypes } = require('sequelize');
 
-const { MusicTag } = require("./MusicTag");
-const Tag = require("./Tag");
-const { Album } = require("./Album");
+const { MusicTag } = require('./MusicTag');
+const Tag = require('./Tag');
+const { Album } = require('./Album');
+const { User } = require('../models/User');
 
-const Music = db.define("music", {
+const Music = db.define('music', {
   name: {
     type: DataTypes.STRING,
     required: true,
@@ -20,7 +21,11 @@ const Music = db.define("music", {
   },
   qtdmsc: {
     type: DataTypes.INTEGER,
-    required: true, 
+    required: true,
+  },
+  artist: {
+    type: DataTypes.STRING,
+    required: true,
   }
 });
 
@@ -42,7 +47,12 @@ const createProject = async (data) => {
   await Music.create(data);
 };
 
+const getAllMusic = async () => {
+  return await Music.findAll({ raw: true });
+};
+
 module.exports = {
   Music,
   createProject,
+  getAllMusic,
 };
