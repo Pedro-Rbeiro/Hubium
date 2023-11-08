@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+
+const userController = require('./controllers/userController.js');
 const musicController = require('./controllers/musicController.js');
 const musicMiddlewares = require('./middlewares/musicMiddlewares.js');
-const userController = require('./controllers/userController.js');
 const userMiddlewares = require('./middlewares/userMiddlewares.js');
 const homeController = require('./controllers/homeController.js');
 
