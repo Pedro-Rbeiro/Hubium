@@ -1,11 +1,13 @@
 const musicModel = require('../models/Music');
 const userModel = require('../models/User');
 
-const getMusicPage = async (req, res) => {
+const getMusicPage = async (req, res) => { //TODO: adicionar data de expiração
+  const idMusic = req.params.id;
+  const music = await musicModel.getMusic(idMusic);
   res.clearCookie('musicId');
-  res.cookie('musicId', '2QRedhP5RmKJiJ1i8VgDGR');
+  res.cookie('musicId', music.link); // Link da musica deve retornar sem o '/'
   const musicName = 'Most Wanted vol.1'; //Request music name from db
-  res.render('musicPage', { title: musicName })
+  res.render('musicPage', { title: music.name })
 }
 
 const getPromoteProjectPage = async (req, res) => {

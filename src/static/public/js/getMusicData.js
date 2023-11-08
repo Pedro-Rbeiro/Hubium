@@ -38,7 +38,6 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
 
       document.querySelector('input[name="link"]').classList.remove('error')
       document.getElementById("subimit-btn").disabled = false;
-      console.log(data.album.images[1].url);
       try {
         document.querySelector('input[name="link_photo"]').value = data.images[1].url;
         document.querySelector('input[name="artist"]').value = data.artists[0].name;
@@ -49,7 +48,7 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
         document.querySelector('input[name="qtdmsc"]').value = data.album.total_tracks;
       }
 
-      return
+      return;
     }
   });
 });

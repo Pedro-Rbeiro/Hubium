@@ -20,7 +20,7 @@ router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
 
 router.post('/promote-projects/post', musicController.postProjetc);
 
-router.get('/music', musicController.getMusicPage);
+router.get('/music/:id', musicController.getMusicPage);
 
 router.get('/highlights', musicController.getHighlight);
 
