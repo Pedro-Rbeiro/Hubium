@@ -1,9 +1,9 @@
-const musicController = require('../models/Music');
+const musicModel = require('../models/Music');
 const userModel = require('../models/User');
 
 const getMusicPage = async (req, res) => {
   res.clearCookie('musicId');
-  res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');
+  res.cookie('musicId', '2QRedhP5RmKJiJ1i8VgDGR');
   const musicName = 'Most Wanted vol.1'; //Request music name from db
   res.render('musicPage', { title: musicName })
 }
@@ -15,8 +15,8 @@ const getPromoteProjectPage = async (req, res) => {
 
 const postProjetc = async (req, res) => {
   console.log(req.body);
-  // await musicController.createProject(req.body);
-  // return res.redirect('/');
+  await musicModel.createProject(req.body);
+  return res.redirect('/');
 };
 
 const getLibrary = async (req, res) => {

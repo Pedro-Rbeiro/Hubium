@@ -30,6 +30,8 @@ router.get('/results', musicController.getResults);
 
 router.get('/profile', musicController.getProfile);
 
+router.get('/termsnconditions', homeController.termsnconditionsPage);
+
 // router.get('/music', (req, res) => {
 //   res.clearCookie('musicId');
 //   res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');
