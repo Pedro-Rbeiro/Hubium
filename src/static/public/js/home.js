@@ -38,7 +38,6 @@ const anim = () => {
     0.4,
   );
   tl.staggerTo(squares, 0.7, { autoAlpha: 0, height: 0, ease: Expo.easeInOut }, 0.4, "-=0.5");
-  console.log(tl);
 };
 
 function Test() {
