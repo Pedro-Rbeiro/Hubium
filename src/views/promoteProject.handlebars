@@ -31,20 +31,29 @@
 
       <label for="">Selecione até 3 tags: </label>
       <div class="tags">
-        <select name="" id="">
+        <select name="genrerTag" id="">
           {{!-- Genero --}}
-          <option value="">Album</option>
-          <option value="">Single</option>
+          {{!-- <option value="">Album</option>
+          <option value="">Single</option> --}}
+          {{#each genrerTags}}
+            <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
         </select>
-        <select name="" id="">
+        <select name="subgenrerTag" id="">
           {{!-- Subgenero --}}
-          <option value="">Album</option>
-          <option value="">Single</option>
+          {{!-- <option value="">Album</option>
+          <option value="">Single</option> --}}
+          {{#each subgenrerTags}}
+            <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
         </select>
-        <select name="" id="">
+        <select name="moodTag" id="">
           {{!-- Subgenero --}}
-          <option value="">Album</option>
-          <option value="">Single</option>
+          {{!-- <option value="">Album</option>
+          <option value="">Single</option> --}}
+          {{#each moodTags}}
+            <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
       <p class="font-size14 terms-and-conditions">Ao se registrar você concorda com a nossa

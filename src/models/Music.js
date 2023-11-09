@@ -2,7 +2,7 @@ const db = require('../db/conn');
 const { DataTypes } = require('sequelize');
 
 const { MusicTag } = require('./MusicTag');
-const Tag = require('./Tag');
+const { Tag } = require('./Tag');
 const { User } = require('../models/User');
 
 const Music = db.define('music', {
@@ -52,6 +52,10 @@ const getMusic = async (id) => {
   return await Music.findOne({ where: { id: id }, raw: true });
 };
 
+const getMusicId = async (name) => {
+  return await Music.findOne({where: {name: name}, raw: true});
+}
+
 const findMusicLink = async (link) => {
   return await Music.findOne({where: {link: link}, raw: true});
 }
@@ -62,4 +66,5 @@ module.exports = {
   getAllMusic,
   getMusic,
   findMusicLink,
+  getMusicId,
 };

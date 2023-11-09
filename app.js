@@ -6,12 +6,24 @@ const app = express();
 const conn = require('./src/db/conn');
 const routes = require('./src/routes');
 const session = require('express-session');
+const FileStore = require('session-file-store')(session)
 
 app.use(
   session({
     secret: 'whoisinparis@#$_*(¨$!',
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
+    store: new FileStore({
+      logFn: function () {},
+      path: require('path').join(require('os').tmpdir(), 'sessions'),
+    }),
+
+    cookie: {
+      secure: false,
+      maxAge: 360000,
+      expires: new Date(Date.now() + 360000),
+      httpOnly: true,
+    },
   })
 );
 
