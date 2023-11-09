@@ -504,10 +504,16 @@ input[type="email"] {
   white-space: nowrap;
 }
 
+.form-profile-data>input {
+  width: inherit !important;
+}
+
+.form-profile-data>input,
 form>input,
 select {
   padding: 0 10px;
-
+  width: 100%;
+  height: 40px;
   border: 1px solid var(--fourth-color);
   outline: none;
   border-radius: 5px;
@@ -533,12 +539,6 @@ button:hover {
   background-color: var(--hover);
 }
 
-form>input,
-select {
-  width: 100%;
-  height: 40px;
-
-}
 
 span {
   cursor: pointer;
@@ -818,6 +818,8 @@ label,
   margin: 10px 0 0 0;
 }
 
+input:disabled,
+input[disabled],
 button:disabled,
 button[disabled] {
   cursor: default;
@@ -843,6 +845,14 @@ button[disabled] {
   align-items: center !important;
 }
 
+.create-project {
+  color: var(--fourth-color);
+}
+
+.create-project:hover {
+  transition: 100ms;
+  color: var(--second-color);
+}
 
 @keyframes fadeOut {
   100% {

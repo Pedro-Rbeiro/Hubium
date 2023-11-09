@@ -3,12 +3,12 @@
   <div class="profile-flex">
     <aside>
       <ul class="aside-flex">
-        <li> <a class="color-black medium500 font-size24" href="/profile-data"><span
+        <li> <a class="create-project medium500 font-size24" href="/profile-data"><span
               class="black-icons medium500 profile-icon material-symbols-outlined">
               person
             </span>Seus dados</a></li> {{!-- Seus dados --}}
 
-        <li><a class="color-black medium500 font-size24" href="/profile-data/projects"><span
+        <li><a class="create-project medium500 font-size24" href="/profile-data/projects"><span
               class="black-icons profile-icon material-symbols-outlined">
               album
             </span>Seus projetos</a></li> {{!-- Seus projetos --}}
@@ -18,7 +18,7 @@
               favorite
             </span>Seus favoritos</a></li> {{!-- Seus favoritos --}}
 
-        <li><a class="color-black medium500 font-size24" href=""><span
+        <li><a class="create-project medium500 font-size24" href=""><span
               class="black-icons profile-icon material-symbols-outlined">
               logout
             </span>Sair</a></li> {{!-- sair --}}
@@ -26,6 +26,16 @@
 
 
     </aside>
-    <h1>Seus favoritos</h1>
+    <div class="profile-page-content">
+      {{!-- TODO: adicionar uma verificação se tem projetos/favoritos cadastrados --}}
+      <h1 class="">Seus favoritos</h1>
+      <h3 class="medium500">Vamos lá! <a class="create-project" href="">Curta novas musicas</a></h3>
+      {{!-- Se tiver --}}
+      <div id="carousel" class="carousel-container">
+        {{#each musics}}
+        {{> carousel}}
+        {{/each}}
+      </div>
+    </div>
   </div>
 </div>
