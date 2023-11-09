@@ -20,7 +20,7 @@ router.get('/login/get', userMiddlewares.valData, userController.findUser);
 
 router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
 
-router.post('/promote-projects/post', musicController.postProjetc);
+router.post('/promote-projects/post',musicMiddlewares.valMusic, musicController.postProjetc);
 
 router.get('/music/:id', musicController.getMusicPage);
 
