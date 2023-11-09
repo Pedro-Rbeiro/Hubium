@@ -20,7 +20,7 @@ router.get('/login/get', userMiddlewares.valData, userController.findUser);
 
 router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
 
-router.post('/promote-projects/post',musicMiddlewares.valMusic, musicController.postProjetc);
+router.post('/promote-projects/post', musicMiddlewares.valMusic, musicController.postProjetc);
 
 router.get('/music/:id', musicController.getMusicPage);
 
@@ -30,7 +30,7 @@ router.get('/library', musicController.getLibrary);
 
 router.get('/results', musicController.getResults);
 
-router.get('/profile', musicController.getProfile);
+router.get('/profile-data', musicController.getProfile);
 
 router.get('/profile-data/projects', (req, res) => {
   res.render('profile-projects', { title: 'Projetos' })

@@ -3,29 +3,47 @@
   <div class="profile-flex">
     <aside>
       <ul class="aside-flex">
-        <li> <a class="color-black medium500 active-page font-size24" href=""><span
+        <li> <a class="create-project medium500 active-page font-size24" href=""><span
               class="active-page active-icon medium500 profile-icon material-symbols-outlined">
               person
             </span>Seus dados</a></li> {{!-- Seus dados --}}
 
-        <li><a class="color-black medium500 font-size24" href="/profile-data/projects"><span
+        <li><a class="create-project medium500 font-size24" href="/profile-data/projects"><span
               class="black-icons profile-icon material-symbols-outlined">
               album
             </span>Seus projetos</a></li> {{!-- Seus projetos --}}
 
-        <li><a class="color-black medium500 font-size24" href="/profile-data/library"><span
+        <li><a class="create-project medium500 font-size24" href="/profile-data/library"><span
               class="black-icons profile-icon material-symbols-outlined">
               favorite
             </span>Seus favoritos</a></li> {{!-- Seus favoritos --}}
 
-        <li><a class="color-black medium500 font-size24" href=""><span
+        <li><a class="create-project medium500 font-size24" href=""><span
               class="black-icons profile-icon material-symbols-outlined">
               logout
             </span>Sair</a></li> {{!-- sair --}}
       </ul>
 
-
     </aside>
-    <h1>Seus dados</h1>
+    <div class="profile-data-container">
+      <h1>Seus dados</h1>
+      <div class="profile-data-content">
+        <form action="">
+          <div class="form-profile-data">
+            <label for="">Nome</label>
+            <input value="name" type="text" name="" id="" disabled>
+
+            <label for="">Email</label>
+            <input value="email" type="email" name="" id="" disabled>
+
+            <br>
+            <button type="submit">Editar</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
   </div>
 </div>
