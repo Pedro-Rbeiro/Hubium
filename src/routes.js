@@ -7,6 +7,7 @@ const musicController = require('./controllers/musicController.js');
 const musicMiddlewares = require('./middlewares/musicMiddlewares.js');
 const userMiddlewares = require('./middlewares/userMiddlewares.js');
 const homeController = require('./controllers/homeController.js');
+const checkAuth = require('./Helpers/auth.js');
 
 router.get('/', homeController.home);
 
@@ -18,7 +19,7 @@ router.post('/register/create', userMiddlewares.valData, userMiddlewares.valUser
 
 router.get('/login/get', userMiddlewares.valData, userController.findUser);
 
-router.get('/promote-projects/:id', musicController.getPromoteProjectPage);
+router.get('/promote-projects', checkAuth, musicController.getPromoteProjectPage);
 
 router.post('/promote-projects/post', musicMiddlewares.valMusic, musicController.postProjetc);
 

@@ -32,25 +32,19 @@
       <label for="">Selecione até 3 tags: </label>
       <div class="tags">
         <select name="genrerTag" id="">
-          {{!-- Genero --}}
-          {{!-- <option value="">Album</option>
-          <option value="">Single</option> --}}
+          <option value="0">...</option>
           {{#each genrerTags}}
             <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
         </select>
         <select name="subgenrerTag" id="">
-          {{!-- Subgenero --}}
-          {{!-- <option value="">Album</option>
-          <option value="">Single</option> --}}
+          <option value="0">...</option>
           {{#each subgenrerTags}}
             <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
         </select>
         <select name="moodTag" id="">
-          {{!-- Subgenero --}}
-          {{!-- <option value="">Album</option>
-          <option value="">Single</option> --}}
+          <option value="0">...</option>
           {{#each moodTags}}
             <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}

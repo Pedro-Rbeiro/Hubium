@@ -33,14 +33,14 @@ const findUser = async (req, res) => {
 
   compare(password, user.password, (err, results) => {
     if (results) {
-      req.session.user = true;
       req.session.userData = user;
-      return res.redirect('/');
+      return req.session.save(() => {
+        res.redirect('/');
+      });
     } else {
-      return res.status(200).send({ mensage: 'Usuário não encotrado' })
+      return res.status(200).send({ mensage: 'Usuário não encotrado' });
     }
   });
-
 };
 
 module.exports = {

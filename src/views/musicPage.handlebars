@@ -18,9 +18,9 @@
     <div class="music-tags">
       <h2>Tags:</h2>
       <ul class="music-tags-ul">
-        <li class="music-tags-li">#phonk</li>
-        <li class="music-tags-li">#Hip/Hop</li>
-        <li class="music-tags-li">#rap</li>
+        {{#each music.tags}}
+          <li class="music-tags-li">#{{this.name}}</li>
+        {{/each}}
       </ul>
     </div>
   </div>
