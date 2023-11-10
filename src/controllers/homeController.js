@@ -8,17 +8,14 @@ const home = async (req, res) => {
 
   const musics = await musicModel.getAllMusic();
 
-  console.log(musics);
-
-  if (req.session.user) {
+  if (userData) {
     return res.render('home', {
       title: 'Inicio',
-      user: true,
       userData,
       musics,
     });
   } else {
-    return res.render('home', { title: 'Inicio', user: false, musics });
+    return res.render('home', { title: 'Inicio', musics });
   }
 };
 

@@ -5,20 +5,9 @@ const musicTagModel = require('../models/MusicTag');
 const { Tag } = require('../models/Tag');
 const { Music } = require('../models/Music');
 
-const getMusicPage = async (req, res) => {
-  //TODO: adicionar data de expiração
-  const userData = req.session.userData;
-  const idMusic = req.params.id;
-  const music = await musicModel.getMusic(idMusic);
-  console.log();
-  const link = music.link.slice(1);
-  res.clearCookie('musicId');
-  res.cookie('musicId', link); // Link da musica deve retornar sem o '/'
-  res.render('musicPage', { title: music.name, music, userData });
-};
-
 const getPromoteProjectPage = async (req, res) => {
-  const userID = req.params.id;
+  const userData = req.session.userData;
+  const userID = userData.id;
   const genrerTags = await tagModel.getGenrerTags();
   const subgenrerTags = await tagModel.getSubgenrerTags();
   const moodTags = await tagModel.getMoodTags();
@@ -29,6 +18,15 @@ const getPromoteProjectPage = async (req, res) => {
     subgenrerTags,
     moodTags,
   });
+};
+
+const getMusicPage = async (req, res) => {
+  const musicId = req.params.id;
+  const music = await musicModel.getMusic(musicId);
+  const link = music.link.slice(1);
+  res.clearCookie('musicId');
+  res.cookie('musicId', link); // Link da musica deve retornar sem o '/'
+  res.render('musicPage', { title: music.name, music: music.get({plain: true}) });
 };
 
 const postProjetc = async (req, res) => {
@@ -56,6 +54,14 @@ const postProjetc = async (req, res) => {
   return res.redirect('/');
 };
 
+const getResults = async (req, res) => {
+  const inputSearch = req.query.search;
+
+  const musics = await musicModel.searchMusic(inputSearch);
+
+  return res.render('searchPage', { title: 'search', musics, inputSearch });
+}
+
 const getLibrary = async (req, res) => {
   const userData = req.session.userData;
   return res.render('library', { userData, title: 'Library' });
@@ -64,11 +70,6 @@ const getLibrary = async (req, res) => {
 const getHighlight = async (req, res) => {
   const userData = req.session.userData;
   return res.render('highlight', { userData, title: 'Highlights' });
-};
-
-const getResults = async (req, res) => {
-  const userData = req.session.userData;
-  return res.render('searchPage', { userData, title: 'search' });
 };
 
 const getProfile = async (req, res) => {

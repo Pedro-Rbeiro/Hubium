@@ -4,17 +4,17 @@
 
         <div class="music-content">
             {{!-- music page --}}
-            <a href="#">
-                <img class="album-cover" src="/img/covers/most-wanted-vol1.jpg" alt="">
+            <a href="/music/{{this.id}}">
+                <img class="album-cover" src="{{this.link_photo}}" alt="">
             </a>
             <div class="music-info">
                 <a class="bold700 font-size28" href="#">
-                    Most Wanted vol.1
+                    {{this.name}}
                 </a><br>
 
                 {{!--Artist profile --}}
                 <a class="font-size24 regular400" href="#">
-                    BVNDIT
+                    {{this.artist}}
                 </a>
                 <div class="likes-container">
 

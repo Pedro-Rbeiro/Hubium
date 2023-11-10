@@ -1,10 +1,8 @@
-<h2 class="results-txt">Resultados para</h2>
-{{>search}}
-{{>search}}
-{{>search}}
-{{>search}}
-{{>search}}
-{{>search}}
-{{>search}}
-{{>search}}
-{{>search}}
+<h2 class="results-txt">Resultados para "{{inputSearch}}"</h2>
+{{#if musics}}
+    {{#each musics}}
+        {{>search}}
+    {{/each}}
+{{else}}
+    <h2>Não há resultados</h2>
+{{/if}}
