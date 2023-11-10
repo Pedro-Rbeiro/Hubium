@@ -2,16 +2,19 @@ const musicModel = require('../models/Music');
 const userModel = require('../models/User');
 const tagModel = require('../models/Tag');
 const musicTagModel = require('../models/MusicTag');
+const { Tag } = require('../models/Tag');
+const { Music } = require('../models/Music');
 
 const getMusicPage = async (req, res) => {
   //TODO: adicionar data de expiração
   const userData = req.session.userData;
   const idMusic = req.params.id;
   const music = await musicModel.getMusic(idMusic);
+  console.log();
   const link = music.link.slice(1);
   res.clearCookie('musicId');
   res.cookie('musicId', link); // Link da musica deve retornar sem o '/'
-  res.render('musicPage', { title: music.name, music });
+  res.render('musicPage', { title: music.name, music, userData });
 };
 
 const getPromoteProjectPage = async (req, res) => {
@@ -46,12 +49,10 @@ const postProjetc = async (req, res) => {
     req.body.moodTag,
   ];
 
-  await musicModel.createProject(musicData);
+  const music = await musicModel.createProject(musicData);
 
-  const musicId = await musicModel.getMusicId(req.body.name);
+  await musicTagModel.postMusicTags(music, musicTags);
 
-  await musicTagModel.postMusicTags(musicId, musicTags);
-  
   return res.redirect('/');
 };
 
