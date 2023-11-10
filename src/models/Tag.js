@@ -10,11 +10,6 @@ const Tag = db.define('tag', {
   },
 });
 
-// Tag.create({
-//   name: "+18",
-//   type: "mood"
-// })
-
 const getGenrerTags = async () => {
   return await Tag.findAll({ where: { type: 'genrer' }, raw: true });
 };

@@ -41,7 +41,7 @@ Tag.belongsToMany(Music, {
 });
 
 const createProject = async (data) => {
-  await Music.create(data);
+  return await Music.create(data);
 };
 
 const getAllMusic = async () => {
@@ -49,16 +49,19 @@ const getAllMusic = async () => {
 };
 
 const getMusic = async (id) => {
-  return await Music.findOne({ where: { id: id }, raw: true });
+  return await Music.findOne({
+    where: { id: id },
+    raw: true,
+  });
 };
 
 const getMusicId = async (name) => {
-  return await Music.findOne({where: {name: name}, raw: true});
-}
+  return await Music.findOne({ where: { name: name }, raw: true });
+};
 
 const findMusicLink = async (link) => {
-  return await Music.findOne({where: {link: link}, raw: true});
-}
+  return await Music.findOne({ where: { link: link }, raw: true });
+};
 
 module.exports = {
   Music,

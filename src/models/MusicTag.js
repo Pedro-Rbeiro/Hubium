@@ -21,10 +21,8 @@ const MusicTag = db.define('music_tag', {
   },
 });
 
-const postMusicTags = async (musicId, tags) => {
-  for (let i = 0; i < tags.lentgh; i++) {
-    await MusicTag.create({ musicId: musicId, tagId: tags[i] });
-  }
+const postMusicTags = async (music, tags) => {
+  await music.setTags(tags);
 };
 
 module.exports = {
