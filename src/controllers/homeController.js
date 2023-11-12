@@ -6,16 +6,20 @@ const musicLibrary = require('../models/MusicLibrary');
 const home = async (req, res) => {
   const userData = req.session.userData;
 
-  const musics = await musicModel.getAllMusic();
+  const albums = await musicModel.getAllAlbums();
+  const tracks = await musicModel.getAllTracks();
+  const musics = await musicModel.getAllMusics();
 
   if (userData) {
     return res.render('home', {
       title: 'Inicio',
       userData,
+      albums,
+      tracks,
       musics,
     });
   } else {
-    return res.render('home', { title: 'Inicio', musics });
+    return res.render('home', { title: 'Inicio', albums, tracks, musics });
   }
 };
 

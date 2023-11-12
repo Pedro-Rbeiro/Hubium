@@ -12,6 +12,10 @@ const Music = db.define('music', {
     type: DataTypes.STRING,
     required: true,
   },
+  type: {
+    type: DataTypes.STRING,
+    required: true,
+  },
   link: {
     type: DataTypes.STRING,
     required: true,
@@ -46,9 +50,24 @@ const createProject = async (data) => {
   return await Music.create(data);
 };
 
-const getAllMusic = async () => {
+const getAllAlbums = async () => {
   return await Music.findAll({
     order: sequelize.literal('createdAt DESC'),
+    where: { type: 'albums' },
+    raw: true,
+  });
+};
+
+const getAllTracks = async () => {
+  return await Music.findAll({
+    order: sequelize.literal('createdAt DESC'),
+    where: { type: 'tracks' },
+    raw: true,
+  });
+};
+
+const getAllMusics = async () => {
+  return await Music.findAll({
     raw: true,
   });
 };
@@ -77,7 +96,9 @@ const searchMusic = async (search) => {
 module.exports = {
   Music,
   createProject,
-  getAllMusic,
+  getAllAlbums,
+  getAllTracks,
+  getAllMusics,
   getMusic,
   findMusicLink,
   searchMusic,
