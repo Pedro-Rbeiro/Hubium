@@ -14,7 +14,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new FileStore({
-      logFn: function () {},
+      logFn: function () { },
       path: require('path').join(require('os').tmpdir(), 'sessions'),
     }),
 
@@ -48,7 +48,7 @@ app.use(express.static(__dirname + '/src/static'));
 app.use(routes);
 
 conn
-  .sync()
+  .sync({ force: true })
   .then(() => {
     app.listen(port);
   })

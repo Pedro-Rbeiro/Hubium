@@ -488,12 +488,14 @@ form {
   color: var(--fourth-color);
 }
 
-/* form>input[type="text"],
-form>input[type="email"] {
-  margin: 0 0 15px 0;
-} */
 .search>form {
   padding: 0
+}
+
+form>span {
+  color: #f64348;
+  font-size: .75rem;
+  margin: .25rem;
 }
 
 select,

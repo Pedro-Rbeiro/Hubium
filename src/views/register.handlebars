@@ -5,23 +5,27 @@
       <a class="active-btn" href="/register">Cadastrar-se</a>
       <a class="" href="/login">Login</a>
     </div>
-    <form action="/register/create" method="post">
+    <form id="register-form" action="/register/create" method="post">
       <label class="" for="">Nome: </label>
-      <input name="name" type="text" placeholder="Nome:">
+      <input id="name" class="registerInput" name="name" type="text" placeholder="Nome:">
+      <span id="name-error"></span>
 
       <label for="">Email: </label>
-      <input name="email" type="email" placeholder="Email:">
+      <input id="email" class="registerInput" name="email" type="email" placeholder="Email:">
+      <span id="email-error"></span>
 
       <label for="">Senha: </label>
-      <input type="password" name="password" id="" placeholder="Senha: ">
+      <input id="password" class="registerInput" type="password" name="password" placeholder="Senha: ">
+      <span id="password-error"></span>
       <p class="font-size14 terms-and-conditions">Ao se registrar você concorda com a nossa
         <span><a class="active-btn" href="/termsnconditions">politicas de
             privacidade</a></span> e nosso
         <span><a class="active-btn" href="/termsnconditions">termos de uso</a></span>
       </p>
       <div class="submit-btn">
-        <button class="bold700" type="submit">Criar</button>
+        <button id="create-btn" class="bold700" type="submit" disabled>Criar</button>
       </div>
     </form>
   </div>
 </div>
+<script src="/public/js/signUp.js"></script>

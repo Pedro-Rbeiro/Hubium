@@ -6,17 +6,21 @@
     </div>
     <form action="/login/get" method="get">
       <label for="">Email: </label>
-      <input name="email" type="email" placeholder="Email:">
+      <input class="registerInput" name="email" type="email" id="email" placeholder="Email:">
+      <span id="email-error"></span>
 
       <label for="">Senha: </label>
-      <input type="password" name="password" id="" placeholder="Senha: ">
+      <input class="registerInput" type="password" name="password" id="password" placeholder="Senha: ">
+      <span id="password-error"></span>
+
       <div class="forgot-password-flex">
         <a class="font-size14 active-btn" href="">Esqueceu a senha?</a>
       </div>
 
       <div class="submit-btn">
-        <button class="bold700" type="submit">Entrar</button>
+        <button id="create-btn" class="bold700" type="submit" disabled>Entrar</button>
       </div>
     </form>
   </div>
 </div>
+<script src="/public/js/signIn.js"></script>
