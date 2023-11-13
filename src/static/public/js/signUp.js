@@ -55,6 +55,7 @@ form.forEach((e) => {
       document.getElementById('create-btn').disabled = false
     } catch (err) {
       console.log(err);
+      document.getElementById('create-btn').disabled = true
       userInputs[err.input].classList.add('error')
       document.querySelector(`#${err.input}-error`).textContent = err.message
     }
