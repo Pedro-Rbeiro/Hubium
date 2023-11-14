@@ -48,7 +48,7 @@ app.use(express.static(__dirname + '/src/static'));
 app.use(routes);
 
 conn
-  .sync({ force: true })
+  .sync()
   .then(() => {
     app.listen(port);
   })
