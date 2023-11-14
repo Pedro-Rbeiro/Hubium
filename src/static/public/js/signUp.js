@@ -1,6 +1,7 @@
 function validadeName(name) {
-  if (!name.match(/[a-zA-Z]{2,}/)) {
-    const err = new Error(`O nome precisa ter mais de 2 caracteres`)
+  if (!name.match(/[a-zA-Z]{2,}/)||
+  name.length >= 10) {
+    const err = new Error(`O nome precisa ter mais de 2 caracteres e menos que 10 caracteres`)
     err.input = 'name'
     throw err
   }
@@ -43,7 +44,7 @@ const userInputs = {
 const form = document.querySelectorAll('.registerInput')
 form.forEach((e) => {
   e.addEventListener('keydown', (e) => {
-
+    console.log(e);
     resetFormStyles(userInputs)
     try {
       validadeName(userInputs.name.value)
