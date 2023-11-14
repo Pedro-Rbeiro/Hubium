@@ -28,13 +28,13 @@
     <div class="profile-data-container">
       <h1>Seus dados</h1>
       <div class="profile-data-content">
-        <form action="">
+        <form action="/profile-data/update" method="post"> 
           <div class="form-profile-data">
             <label for="">Nome</label>
-            <input value="name" type="text" name="" id="" disabled>
+            <input value="{{userData.name}}" type="text" name="name" id="">
 
             <label for="">Email</label>
-            <input value="email" type="email" name="" id="" disabled>
+            <input value="{{userData.email}}" type="email" name="email" id="">
 
             <br>
             <button type="submit">Editar</button>

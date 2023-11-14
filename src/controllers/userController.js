@@ -25,7 +25,7 @@ const loginPage = (_req, res) => {
   res.render('login', { title: 'Login', layout: 'min-header' });
 };
 
-const findUser = async (req, res) => {
+const findUser = async (req, res) => {  
   const email = req.query.email;
   const password = req.query.password;
 
@@ -47,9 +47,40 @@ const findUser = async (req, res) => {
   }
 };
 
+const logout = (req, res) => {
+  req.session.destroy();
+  
+  return res.redirect('/');
+}
+
+const getProfileData = async (req, res) => {
+  const userData = req.session.userData;
+  return res.render('profile', { userData, title: 'Profile' });
+};
+
+const updateProfileData = async (req, res) => {
+  const userData = req.session.userData;
+  const userId = userData.id;
+  const name = req.body.name;
+  const email = req.body.email;
+
+  const data = {name, email}
+
+  await userModel.updateData(data, userId);
+
+  const updatedData = await userModel.findUser(email);
+
+  req.session.userData = updatedData;
+
+  return res.redirect('/');
+}
+
 module.exports = {
   registerPage,
   createUser,
   loginPage,
   findUser,
+  logout,
+  getProfileData,
+  updateProfileData,
 };

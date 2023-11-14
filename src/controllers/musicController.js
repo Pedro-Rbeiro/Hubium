@@ -15,6 +15,7 @@ const getPromoteProjectPage = async (req, res) => {
   return res.render('promoteProject', {
     title: 'Promote Projects',
     userID,
+    userData,
     genrerTags,
     subgenrerTags,
     moodTags,
@@ -22,6 +23,7 @@ const getPromoteProjectPage = async (req, res) => {
 };
 
 const getMusicPage = async (req, res) => {
+  const userData = req.session.userData;
   const musicId = req.params.id;
   const music = await musicModel.getMusic(musicId);
   const link = music.link.slice(1);
@@ -32,6 +34,7 @@ const getMusicPage = async (req, res) => {
   res.render('musicPage', {
     title: music.name,
     music: music.get({ plain: true }),
+    userData,
   });
 };
 
@@ -60,11 +63,17 @@ const postProjetc = async (req, res) => {
 };
 
 const getResults = async (req, res) => {
+  const userData = req.session.userData;
+  
   const inputSearch = req.query.search;
+
+  if (inputSearch == '') {
+    return res.redirect('/');
+  }
 
   const musics = await musicModel.searchMusic(inputSearch);
 
-  return res.render('searchPage', { title: 'search', musics, inputSearch });
+  return res.render('searchPage', { title: 'search', musics, inputSearch, userData});
 };
 
 const getLibrary = async (req, res) => {
@@ -77,10 +86,10 @@ const getHighlight = async (req, res) => {
   return res.render('highlight', { userData, title: 'Highlights' });
 };
 
-const getProfile = async (req, res) => {
-  const userData = req.session.userData;
-  return res.render('profile', { userData, title: 'Profile' });
-};
+// const getProfile = async (req, res) => {
+//   const userData = req.session.userData;
+//   return res.render('profile', { userData, title: 'Profile' });
+// };
 
 module.exports = {
   getPromoteProjectPage,
@@ -88,6 +97,6 @@ module.exports = {
   getLibrary,
   getHighlight,
   getResults,
-  getProfile,
+  // getProfile,
   getMusicPage,
 };
