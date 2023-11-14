@@ -11,6 +11,7 @@ const getPromoteProjectPage = async (req, res) => {
   const genrerTags = await tagModel.getGenrerTags();
   const subgenrerTags = await tagModel.getSubgenrerTags();
   const moodTags = await tagModel.getMoodTags();
+
   return res.render('promoteProject', {
     title: 'Promote Projects',
     userID,
@@ -24,13 +25,17 @@ const getMusicPage = async (req, res) => {
   const musicId = req.params.id;
   const music = await musicModel.getMusic(musicId);
   const link = music.link.slice(1);
+  res.clearCookie('type');
   res.clearCookie('musicId');
   res.cookie('musicId', link); // Link da musica deve retornar sem o '/'
-  res.render('musicPage', { title: music.name, music: music.get({plain: true}) });
+  res.cookie('type', music.type);
+  res.render('musicPage', {
+    title: music.name,
+    music: music.get({ plain: true }),
+  });
 };
 
 const postProjetc = async (req, res) => {
-  
   const musicData = {
     name: req.body.name,
     type: req.body.type,
@@ -60,7 +65,7 @@ const getResults = async (req, res) => {
   const musics = await musicModel.searchMusic(inputSearch);
 
   return res.render('searchPage', { title: 'search', musics, inputSearch });
-}
+};
 
 const getLibrary = async (req, res) => {
   const userData = req.session.userData;

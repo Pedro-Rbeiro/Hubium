@@ -6,7 +6,7 @@ const app = express();
 const conn = require('./src/db/conn');
 const routes = require('./src/routes');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session)
+const FileStore = require('session-file-store')(session);
 
 app.use(
   session({
@@ -14,13 +14,13 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new FileStore({
-      logFn: function () { },
+      logFn: function () {},
       path: require('path').join(require('os').tmpdir(), 'sessions'),
     }),
 
     cookie: {
       secure: false,
-      maxAge: 360000,
+      maxAge: 720000,
       expires: new Date(Date.now() + 720000),
       httpOnly: true,
     },
@@ -48,7 +48,7 @@ app.use(express.static(__dirname + '/src/static'));
 app.use(routes);
 
 conn
-  .sync({ force: true })
+  .sync()
   .then(() => {
     app.listen(port);
   })
