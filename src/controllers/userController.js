@@ -18,7 +18,7 @@ const createUser = async (req, res) => {
 
   await userModel.createUser(userData);
 
-  return res.status(201).redirect('/login');
+  return res.redirect('/login');
 };
 
 const loginPage = (_req, res) => {
@@ -31,16 +31,20 @@ const findUser = async (req, res) => {
 
   const user = await userModel.findUser(email);
 
-  compare(password, user.password, (err, results) => {
-    if (results) {
-      req.session.userData = user;
-      return req.session.save(() => {
-        res.redirect('/');
-      });
-    } else {
-      return res.status(200).send({ mensage: 'Usuário não encotrado' });
-    }
-  });
+  if (user) {
+    compare(password, user.password, (err, results) => {
+      if (results) {
+        req.session.userData = user;
+        return req.session.save(() => {
+          res.redirect('/');
+        });
+      } else {
+        return res.send({ mensage: 'Senha incorreta' });
+      }
+    });
+  } else {
+    return res.send({ mensage: 'Usuário não encontrado' });
+  }
 };
 
 module.exports = {

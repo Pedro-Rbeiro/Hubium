@@ -69,18 +69,17 @@
           <span class=" profile-icon material-symbols-outlined">
             person
           </span>
-          <h1 class="medium500 font-size14 sign">
-            Faça <span class="login-btn"><a class=" bold700" href="/login">Login</a></span> ou <br>
-            crie seu <a class="bold700" href="/register">Cadastro</a>
-          </h1>
-
-          {{!-- Header logado --}}
-
-          {{!-- TODO: fazer função que verifica se está logado para usar esse header --}}
-          {{!-- <h1 class="bold700 font-size14 sign">
-            Olá <span class="login-btn"><a class="font-size16 bold700" href="/profile">Nome</a></span><br>
-            <a class="regular400" href="#">Sair</a>
-          </h1> --}}
+          {{#if userData}}
+            <h1 class="bold700 font-size14 sign">
+              Olá <span class="login-btn"><a class="font-size16 bold700" href="/profile">{{userData.name}}</a></span><br>
+              <a class="regular400" href="/logout">Sair</a>
+            </h1>
+          {{else}}
+            <h1 class="medium500 font-size14 sign">
+              Faça <span class="login-btn"><a class=" bold700" href="/login">Login</a></span> ou <br>
+              crie seu <a class="bold700" href="/register">Cadastro</a>
+            </h1>
+          {{/if}}
           <li class="search">
             <form action="/results" method="get">
               <input name="search" class="search-input" placeholder="Pesquisar" type="text">
