@@ -21,7 +21,6 @@ const getSubgenrerTags = async () => {
 const getMoodTags = async () => {
   return await Tag.findAll({ where: { type: 'mood' }, raw: true });
 };
-
 module.exports = {
   Tag,
   getGenrerTags,

@@ -38,7 +38,7 @@ aside {
 }
 
 .regular400 {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 .medium500 {
@@ -218,6 +218,45 @@ label {
 .nav-text {
   display: flex;
   margin: 0 0 0 50px;
+}
+.music-info{
+  margin: 0 0 0 10px;
+}
+.like-form{
+  padding: 0;
+  display: flex;
+}
+.like-container{
+  width: 100%;
+  display: flex;
+}
+.photo-container>h3{
+  color: var(--first-color);
+}
+.like-container>h3{
+  display: flex;
+  align-items: center;
+color: var(--first-color);
+}
+.like-btn{
+  padding: 5px;
+  margin: 0;
+
+}
+.like-btn:hover{
+  background-color: var(--second-color);
+
+}
+.not-liked{
+  padding: 0 5px 0 0  !important;
+  background-color: transparent !important; 
+}
+
+.like-btn>span{
+  display: flex;
+  align-items: center;
+
+  font-size: 18px;
 }
 
 .section-container {
@@ -453,6 +492,7 @@ label {
 }
 
 .music-tags-ul {
+  display: flex;
   margin: 5px 0 0 0;
 }
 
