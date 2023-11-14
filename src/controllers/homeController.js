@@ -24,17 +24,11 @@ const home = async (req, res) => {
 };
 
 const termsnconditionsPage = (req, res) => {
-  return res.render('termsnconditions', { title: 'Termos e condições' });
+  const userData = req.session.userData;
+  return res.render('termsnconditions', { title: 'Termos e condições', userData });
 };
-
-const logout = (req, res) => {
-  req.session.destroy();
-  
-  return res.redirect('/');
-}
 
 module.exports = {
   home,
   termsnconditionsPage,
-  logout,
 };

@@ -1,5 +1,5 @@
 const db = require('../db/conn');
-const { DataTypes } = require('sequelize');
+const { DataTypes, where } = require('sequelize');
 
 const { Music } = require('./Music');
 const { MusicLibrary } = require('./MusicLibrary');
@@ -56,8 +56,13 @@ const findUser = async (email) => {
   return User.findOne({ where: { email: email }, raw: true });
 };
 
+const updateData = async(data, userId) => {
+  return User.update(data, {where: {id: userId}});
+}
+
 module.exports = {
   User,
   createUser,
   findUser,
+  updateData,
 };

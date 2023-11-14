@@ -43,7 +43,9 @@ router.get('/library', musicController.getLibrary);
 
 router.get('/results', musicController.getResults);
 
-router.get('/profile-data', musicController.getProfile);
+router.get('/profile-data', userController.getProfileData);
+
+router.post('/profile-data/update', userController.updateProfileData);
 
 router.get('/profile-data/projects', (req, res) => {
   res.render('profile-projects', { title: 'Projetos' });
@@ -52,31 +54,8 @@ router.get('/profile-data/library', (req, res) => {
   res.render('profile-favorite', { title: 'Favoritos' });
 });
 
-router.get('/logout', homeController.logout);
-// router.get('/music', (req, res) => {
-//   res.clearCookie('musicId');
-//   res.cookie('musicId', '5e8jwQEGvcKqs3edoWOvSv?si=dutcdDdAQhGf1GXxaNX1ZA');
-//   const musicName = 'Most Wanted vol.1'; //Request music name from db
-//   res.render('musicPage', { title: musicName });
-// });
+router.get('/logout', userController.logout);
 
-// router.get('/highlights', (req, res) => {
-//   res.render('highlight', { title: 'Highlights' });
-// });
+router.get('/termsnconditions', homeController.termsnconditionsPage);
 
-// router.get('/library', (req, res) => {
-//   res.render('library', { title: 'Library' });
-// });
-
-// router.get('/results', (req, res) => {
-//   res.render('searchPage', { title: 'search' });
-// });
-
-// router.get('/profile', (req, res) => {
-//   res.render('profile', { title: 'Profile', });
-// })
-
-// router.get('/promote-projects', (req, res) => {
-//   res.render('promoteProject', { title: 'Promote Projects' })
-// })
 module.exports = router;
