@@ -2,7 +2,7 @@
   <div id="music-container" class="music-container">
     <div class="music-content">
       <div class="photo-container">
-        <img class="album-cover" src="{{music.link_photo}}" alt="">
+        <img id="album-cover" class="album-cover" src="{{music.link_photo}}" alt="">
 
         <h3 class="regular400">{{music.qtdmsc}} songs</h3>
       </div>
@@ -48,5 +48,7 @@
   </div>
 
 </div>
+<script src="https://unpkg.com/fast-average-color/dist/index.browser.min.js"></script>
+<script src="/public/js/colorPicker.js"></script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script> {{!-- Spotify embed api --}}
 <script src="/public/js/spotifyApi.bundle.min.js"></script> {{!-- Script do embed--}}

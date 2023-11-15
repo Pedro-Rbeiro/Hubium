@@ -120,7 +120,8 @@ aside {
   --third-color: #FFFCFF;
   --fourth-color: #333333;
   --hover: #6700b6;
-  --separator: #5f5f5f5f
+  --separator: #5f5f5f5f;
+  --transparent-bg: #ffffff15;
 }
 
 .overflow-hidden {
@@ -219,40 +220,48 @@ label {
   display: flex;
   margin: 0 0 0 50px;
 }
-.music-info{
+
+.music-info {
   margin: 0 0 0 10px;
 }
-.like-form{
+
+.like-form {
   padding: 0;
   display: flex;
 }
-.like-container{
+
+.like-container {
   width: 100%;
   display: flex;
 }
-.photo-container>h3{
+
+.photo-container>h3 {
   color: var(--first-color);
 }
-.like-container>h3{
+
+.like-container>h3 {
   display: flex;
   align-items: center;
-color: var(--first-color);
+  color: var(--first-color);
 }
-.like-btn{
+
+.like-btn {
   padding: 5px;
   margin: 0;
 
 }
-.like-btn:hover{
+
+.like-btn:hover {
   background-color: var(--second-color);
 
 }
-.not-liked{
-  padding: 0 5px 0 0  !important;
-  background-color: transparent !important; 
+
+.not-liked {
+  padding: 0 5px 0 0 !important;
+  background-color: transparent !important;
 }
 
-.like-btn>span{
+.like-btn>span {
   display: flex;
   align-items: center;
 
@@ -314,8 +323,8 @@ color: var(--first-color);
 
 #search-btn {
   display: flex;
-  color: var(--fourth-color);
-  background-color: var(--first-color);
+  color: #333333;
+  background-color: #ffffff;
   border-radius: 0 5px 5px 0;
   padding: 0;
   margin: 0;
@@ -499,7 +508,7 @@ color: var(--first-color);
 .music-tags-li {
   padding: 5px;
   border-radius: 5px;
-  background-color: #ffffff15;
+  background-color: var(--transparent-bg);
   margin: 0 10px 0 0;
 }
 
@@ -661,9 +670,16 @@ span {
   padding: 50px 0 0 0
 }
 
-.footer-social>h2,
+.footer-social>h2 {
+  color: #FFFFFF !important;
+}
+
 .music-info>h2 {
   color: var(--first-color) !important;
+}
+
+.social-links>a {
+  color: #FFFFFF !important;
 }
 
 .music-info>a:hover,
