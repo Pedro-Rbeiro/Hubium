@@ -26,7 +26,7 @@ const getMusicPage = async (req, res) => {
   const userData = req.session.userData;
   const musicId = req.params.id;
   const music = await musicModel.getMusic(musicId);
-  const link = music.link.slice(1);
+  const link = music.link;
   res.clearCookie('type');
   res.clearCookie('musicId');
   res.cookie('musicId', link); // Link da musica deve retornar sem o '/'
@@ -64,7 +64,7 @@ const postProjetc = async (req, res) => {
 
 const getResults = async (req, res) => {
   const userData = req.session.userData;
-  
+
   const inputSearch = req.query.search;
 
   if (inputSearch == '') {
@@ -73,7 +73,7 @@ const getResults = async (req, res) => {
 
   const musics = await musicModel.searchMusic(inputSearch);
 
-  return res.render('searchPage', { title: 'search', musics, inputSearch, userData});
+  return res.render('searchPage', { title: 'search', musics, inputSearch, userData });
 };
 
 const getLibrary = async (req, res) => {

@@ -1,6 +1,6 @@
 const client_id = "49c6bae8cfe24d80ae1610dde2b15900";
 const client_secret = "ce3599cbc81a4b3fa13e7e62f65c7226";
-document.querySelector('input[name="link"]').addEventListener("blur", () => {
+document.querySelector('input[name="link"]').addEventListener("change", () => {
   let token = "";
 
   async function getToken() {
@@ -19,7 +19,7 @@ document.querySelector('input[name="link"]').addEventListener("blur", () => {
   getToken().then(async () => {
     const uri = document.querySelector('input[name="link"]').value;
     const type = document.querySelector('select[name="type"]').value;
-    const url = `https://api.spotify.com/v1/${type}${uri}`;
+    const url = `https://api.spotify.com/v1/${type}/${uri}`;
 
     let options = {
       method: "GET",
