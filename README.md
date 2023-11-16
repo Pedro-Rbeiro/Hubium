@@ -11,14 +11,13 @@
 
 <br />
 
-<br/>
 <p align="center">
-  <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/handlebars/handlebars-original.svg" />
-  <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
-  <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" />
-  <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" />
-  <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babel/babel-original.svg" />
-  <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" />
+  <img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/handlebars/handlebars-original.svg" />
+  <img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
+  <img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" />
+  <img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" />
+  <img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babel/babel-original.svg" />
+  <img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" />
 </p>
 
 <hr>
@@ -47,9 +46,6 @@ A atual cena da musica tende a esconder artistas pequenos e muito talentosos. Es
 - [x] Possibilidade de curtir musicas e ficarem salvas na sua biblioteca
 - [x] Possibilidade de ouvir as musicar pelo site com a Api do Spotify
 
-<br/>
-
-
 # Como usar
 
 ### Pré requisitos
@@ -63,7 +59,7 @@ Além disso é bom ter um editor para trabalhar com o código como [VSCode](http
 
 1. Clone esse repositório
   ``` bash
-  git clone <https://github.com/Pedro-Rbeiro/Hubium.git>
+$ git clone <https://github.com/Pedro-Rbeiro/Hubium.git>
 ```
 2. Acesse a pasta do projeto no terminal/cmd
 ``` bash
@@ -71,11 +67,11 @@ $ cd Hubium
 ```
 3. Instale as dependencias utilizando o node
  ``` bash
-npm i
+$ npm install
  ```
 4. Execute a aplicação
  ``` bash
-npm start
+$ npm start
  ```
 5. O servidor iniciará na porta:3000 - acesse <http://localhost:3000>
 
