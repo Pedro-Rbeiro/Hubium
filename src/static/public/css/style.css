@@ -772,7 +772,7 @@ a>svg {
   padding: 50px 100px;
   border-radius: 10px;
   flex-direction: column;
-  background-color: #09501e;
+  background-color: transparent;
 }
 
 .search-flex {

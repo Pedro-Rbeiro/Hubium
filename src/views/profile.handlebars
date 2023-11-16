@@ -3,7 +3,7 @@
   <div class="profile-flex">
     <aside>
       <ul class="aside-flex">
-        <li> <a class="create-project medium500 active-page font-size24" href=""><span
+        <li> <a translate="no" class="create-project medium500 active-page font-size24" href=""><span
               class="active-page active-icon medium500 profile-icon material-symbols-outlined">
               person
             </span>Seus dados</a></li> {{!-- Seus dados --}}
@@ -28,16 +28,18 @@
     <div class="profile-data-container">
       <h1>Seus dados</h1>
       <div class="profile-data-content">
-        <form action="/profile-data/update" method="post"> 
+        <form class="registerInput" action="/profile-data/update" method="post">
           <div class="form-profile-data">
             <label for="">Nome</label>
-            <input value="{{userData.name}}" type="text" name="name" id="">
+            <input value="{{userData.name}}" type="text" name="name" id="name">
+
 
             <label for="">Email</label>
-            <input value="{{userData.email}}" type="email" name="email" id="">
+            <input value="{{userData.email}}" type="email" name="email" id="email">
 
             <br>
-            <button type="submit">Editar</button>
+            <button id="create-btn" type="submit">Editar</button>
+            <button id="cancel-btn">Cancelar</button>
           </div>
 
         </form>
@@ -47,3 +49,4 @@
     </div>
   </div>
 </div>
+<script src="/public/js/editPage.js"></script>

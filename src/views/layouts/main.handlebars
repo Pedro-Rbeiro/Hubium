@@ -26,7 +26,7 @@
   {{!--
   <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" /> --}}
   <link rel="stylesheet" href="/public/css/slick-theme.css">
-
+  <meta name="google" content="notranslate">
   <title>Hubium | {{{title}}}</title>
 
 </head>
@@ -66,12 +66,12 @@
         </nav>
 
         <div class="search-sign">
-          <span class=" profile-icon material-symbols-outlined">
+          <span translate="no" class=" profile-icon material-symbols-outlined">
             person
           </span>
           {{#if userData}}
           <h1 class="bold700 font-size14 sign">
-            Olá <span class="login-btn"><a class="font-size16 bold700"
+            Olá, <span class="login-btn"><a class="font-size16 bold700"
                 href="/profile-data">{{userData.name}}</a></span><br>
             <a class="regular400" href="/logout">Sair</a>
           </h1>
@@ -87,7 +87,7 @@
 
           </li>
           <button type="submit" id="search-btn" href="">
-            <span class="material-symbols-outlined">
+            <span translate="no" class="material-symbols-outlined">
               search
             </span>
           </button>
