@@ -1,5 +1,3 @@
-
-
 <br />
 <p align="center">
   <a href="https://easybase.io">
@@ -18,6 +16,8 @@
   <img height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" />
 </div>
 <hr>
+<!--Descrição-->
+<h1>O que é a Hubium?</h1>
+<p>Especializado na promoção de artistas pequenos e independentes, o Hubium oferece uma plataforma dedicada à descoberta de novas vozes e sonoridades. <br/> Explore o vasto universo de músicos promissores que estão moldando o panorama musical contemporâneo, proporcionando a esses artistas uma vitrine única para compartilhar suas paixões e narrativas através da música. <br/> O Hubium é o ponto de encontro para aqueles que buscam experiências musicais autênticas e desejam apoiar talentos emergentes. Junte-se a nós e descubra o próximo grande som no Hubium, onde a música encontra seu verdadeiro público.</p>
 
-          
           
