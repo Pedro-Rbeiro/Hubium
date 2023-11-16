@@ -1,54 +1,72 @@
-<div class="music-flex">
-  <div id="music-container" class="music-container">
-    <div class="music-content">
-      <div class="photo-container">
-        <img id="album-cover" class="album-cover" src="{{music.link_photo}}" alt="">
+<div class='music-flex'>
+  <div id='music-container' class='music-container'>
+    <div class='music-content'>
+      <div class='photo-container'>
+        <img
+          id='album-cover'
+          class='album-cover'
+          src='{{music.link_photo}}'
+          alt=''
+        />
 
-        <h3 class="regular400">{{music.qtdmsc}} songs</h3>
+        <h3 class='regular400'>{{music.qtdmsc}} songs</h3>
       </div>
-      <div class="music-info">
-        <h2 class=" font-size28">{{music.name}}</h2>
-        <h2 class="font-size18 regular400 ">{{music.artist}}</h2>
+      <div class='music-info'>
+        <h2 class='font-size28'>{{music.name}}</h2>
+        <h2 class='font-size18 regular400'>{{music.artist}}</h2>
 
-        <form class="like-form" action="" method="post">
-          {{!-- not liked --}}
-          <div class="like-container">
-            <button class="not-liked like-btn" type="submit">
-              <span class='material-symbols-outlined'>
-                favorite
-              </span>
-
-
-            </button>
-            <h3>200 likes</h3>
-          </div>
-          {{!-- liked --}}
-          {{!-- <button class="not-liked like-btn" type="submit">
-            <span class='material-symbols-outlined'>
-              favorite
-            </span>
-          </button> --}}
-        </form>
+        {{#if likedMusic}}
+          <form class='like-form' action='/music/dislike' method='post'>
+            {{! liked }}
+            <div class='like-container'>
+              <input type='hidden' name='musicId' value='{{music.id}}' />
+              <button class='like-btn' type='submit'>
+                <span class='material-symbols-outlined'>
+                  favorite
+                </span>
+              </button>
+              <h3>200 likes</h3>
+            </div>
+          </form>
+        {{else}}
+          <form class='like-form' action='/music/like' method='post'>
+            {{! not liked }}
+            <div class='like-container'>
+              <input type='hidden' name='musicId' value='{{music.id}}' />
+              <button class='not-liked like-btn' type='submit'>
+                <span class='material-symbols-outlined'>
+                  favorite
+                </span>
+              </button>
+              <h3>200 likes</h3>
+            </div>
+          </form>
+        {{/if}}
       </div>
     </div>
 
-    <div class="embed-flex">
-      <div class="embed-content">
-        <div id="embed-iframe" class="spotify-embed"></div> {{!-- container do embed api --}}
+    <div class='embed-flex'>
+      <div class='embed-content'>
+        <div id='embed-iframe' class='spotify-embed'></div>
+        {{! container do embed api }}
       </div>
     </div>
-    <div class="music-tags">
+    <div class='music-tags'>
       <h2>Tags:</h2>
-      <ul class="music-tags-ul">
+      <ul class='music-tags-ul'>
         {{#each music.tags}}
-        <li class="music-tags-li">#{{this.name}}</li>
+          <li class='music-tags-li'>#{{this.name}}</li>
         {{/each}}
       </ul>
     </div>
   </div>
 
 </div>
-<script src="https://unpkg.com/fast-average-color/dist/index.browser.min.js"></script>
-<script src="/public/js/colorPicker.js"></script>
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script> {{!-- Spotify embed api --}}
-<script src="/public/js/spotifyApi.bundle.min.js"></script> {{!-- Script do embed--}}
+<script
+  src='https://unpkg.com/fast-average-color/dist/index.browser.min.js'
+></script>
+<script src='/public/js/colorPicker.js'></script>
+<script src='https://open.spotify.com/embed/iframe-api/v1' async></script>
+{{! Spotify embed api }}
+<script src='/public/js/spotifyApi.bundle.min.js'></script>
+{{! Script do embed}}
