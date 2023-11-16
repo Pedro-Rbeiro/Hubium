@@ -47,7 +47,7 @@ router.get('/library', musicController.getLibrary);
 
 router.get('/results', musicController.getResults);
 
-router.get('/profile-data', userController.getProfileData);
+router.get('/profile-data', checkAuth, userController.getProfileData);
 
 router.post('/profile-data/update', userController.updateProfileData);
 
