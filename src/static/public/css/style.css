@@ -154,8 +154,27 @@ p {
   color: var(--third-color);
 }
 
-h1 {
+h1,
+.e404-text>p {
   color: var(--fourth-color);
+}
+
+.e404-content {
+  display: flex;
+}
+
+.e404-text {
+  max-width: 40rem;
+}
+
+.e404-return>a {
+  font-weight: 600;
+  color: #8F00FF !important;
+}
+
+.e404-return>a:hover {
+  font-weight: 600;
+  color: #6700b6 !important;
 }
 
 a:hover {
@@ -520,7 +539,8 @@ form {
   padding: 10px;
 }
 
-.form-container {
+.form-container,
+.e404-container {
   display: flex;
   flex-direction: column;
   width: 100%;

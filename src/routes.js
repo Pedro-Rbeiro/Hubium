@@ -62,4 +62,8 @@ router.get('/logout', userController.logout);
 
 router.get('/termsnconditions', homeController.termsnconditionsPage);
 
+router.get('*', (req, res) => {
+  res.status(404).render('404', { title: 'Pagina não encontrada!' })
+})
+
 module.exports = router;
