@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <a href="https://easybase.io">
+  <a href="#">
     <img src="https://img001.prntscr.com/file/img001/wEHImfhOTUeUBIlTJXgZCQ.png" alt="easybase logo black" width="80" height="65">
   </a>
 </p>
