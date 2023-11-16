@@ -37,6 +37,10 @@ router.post(
 
 router.get('/music/:id', musicController.getMusicPage);
 
+router.post('/music/like', checkAuth, musicController.likeMusic);
+
+router.post('/music/dislike', musicController.dislikeMusic);
+
 router.get('/highlights', musicController.getHighlight);
 
 router.get('/library', musicController.getLibrary);

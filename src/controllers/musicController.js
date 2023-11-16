@@ -1,6 +1,7 @@
 const musicModel = require('../models/Music');
 const userModel = require('../models/User');
 const tagModel = require('../models/Tag');
+const likedMusicModel = require('../models/LikedMusic');
 const musicTagModel = require('../models/MusicTag');
 const { Tag } = require('../models/Tag');
 const { Music } = require('../models/Music');
@@ -24,18 +25,69 @@ const getPromoteProjectPage = async (req, res) => {
 
 const getMusicPage = async (req, res) => {
   const userData = req.session.userData;
-  const musicId = req.params.id;
-  const music = await musicModel.getMusic(musicId);
-  const link = music.link;
-  res.clearCookie('type');
-  res.clearCookie('musicId');
-  res.cookie('musicId', link); // Link da musica deve retornar sem o '/'
-  res.cookie('type', music.type);
-  res.render('musicPage', {
-    title: music.name,
-    music: music.get({ plain: true }),
-    userData,
-  });
+  if (userData) {
+    const userId = userData.id;
+    const musicId = req.params.id;
+    const likedMusic = await likedMusicModel.findMusicLiked(userId, musicId);
+    const music = await musicModel.getMusic(musicId);
+    const link = music.link;
+    res.clearCookie('type');
+    res.clearCookie('musicId');
+    res.cookie('musicId', link);
+    res.cookie('type', music.type);
+
+    return res.render('musicPage', {
+      title: music.name,
+      music: music.get({ plain: true }),
+      userData,
+      likedMusic,
+    });
+  } else {
+    const musicId = req.params.id;
+    const music = await musicModel.getMusic(musicId);
+    const link = music.link;
+    res.clearCookie('type');
+    res.clearCookie('musicId');
+    res.cookie('musicId', link);
+    res.cookie('type', music.type);
+
+    return res.render('musicPage', {
+      title: music.name,
+      music: music.get({ plain: true }),
+      userData,
+    });
+  }
+  // res.clearCookie('type');
+  // res.clearCookie('musicId');
+  // res.cookie('musicId', link);
+  // res.cookie('type', music.type);
+
+  // return res.render('musicPage', {
+  //   title: music.name,
+  //   music: music.get({ plain: true }),
+  //   userData,
+  //   likedMusic,
+  // });
+};
+
+const likeMusic = async (req, res) => {
+  const musicId = req.body.musicId;
+  const userData = req.session.userData;
+  const userId = userData.id;
+
+  await likedMusicModel.setLikedMusic(userId, musicId);
+
+  return res.redirect(`/music/${musicId}`);
+};
+
+const dislikeMusic = async (req, res) => {
+  const musicId = req.body.musicId;
+  const userData = req.session.userData;
+  const userId = userData.id;
+
+  await likedMusicModel.deleteLikedMusic(userId, musicId);
+
+  return res.redirect(`/music/${musicId}`);
 };
 
 const postProjetc = async (req, res) => {
@@ -73,7 +125,12 @@ const getResults = async (req, res) => {
 
   const musics = await musicModel.searchMusic(inputSearch);
 
-  return res.render('searchPage', { title: 'search', musics, inputSearch, userData });
+  return res.render('searchPage', {
+    title: 'search',
+    musics,
+    inputSearch,
+    userData,
+  });
 };
 
 const getLibrary = async (req, res) => {
@@ -86,17 +143,13 @@ const getHighlight = async (req, res) => {
   return res.render('highlight', { userData, title: 'Highlights' });
 };
 
-// const getProfile = async (req, res) => {
-//   const userData = req.session.userData;
-//   return res.render('profile', { userData, title: 'Profile' });
-// };
-
 module.exports = {
   getPromoteProjectPage,
   postProjetc,
   getLibrary,
   getHighlight,
   getResults,
-  // getProfile,
   getMusicPage,
+  likeMusic,
+  dislikeMusic,
 };

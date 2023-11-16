@@ -1,14 +1,14 @@
 const userModel = require('../models/User');
 const musicModel = require('../models/Music');
 const likedMusicModel = require('../models/LikedMusic');
-const musicLibrary = require('../models/MusicLibrary');
 
 const home = async (req, res) => {
   const userData = req.session.userData;
+  // const userid = userData.id;
 
   const albums = await musicModel.getAllAlbums();
   const tracks = await musicModel.getAllTracks();
-  const musics = await musicModel.getAllMusics();
+  // const likedMusics = await likedMusicModel.(userid);
 
   if (userData) {
     return res.render('home', {
@@ -16,16 +16,24 @@ const home = async (req, res) => {
       userData,
       albums,
       tracks,
-      musics,
+      // library,
     });
   } else {
-    return res.render('home', { title: 'Inicio', albums, tracks, musics });
+    return res.render('home', {
+      title: 'Inicio',
+      albums,
+      tracks,
+      // library: likedMusics.get({ plain: true }),
+    });
   }
 };
 
 const termsnconditionsPage = (req, res) => {
   const userData = req.session.userData;
-  return res.render('termsnconditions', { title: 'Termos e condições', userData });
+  return res.render('termsnconditions', {
+    title: 'Termos e condições',
+    userData,
+  });
 };
 
 module.exports = {

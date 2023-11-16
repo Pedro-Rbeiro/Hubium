@@ -1,8 +1,7 @@
 const db = require('../db/conn');
-const { DataTypes, where } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 const { Music } = require('./Music');
-const { MusicLibrary } = require('./MusicLibrary');
 const { LikedMusic } = require('./LikedMusic');
 
 const User = db.define('user', {
@@ -17,19 +16,6 @@ const User = db.define('user', {
   password: {
     type: DataTypes.STRING,
     required: true,
-  },
-});
-
-
-User.belongsToMany(Music, {
-  through: {
-    model: MusicLibrary,
-  },
-});
-
-Music.belongsToMany(User, {
-  through: {
-    model: MusicLibrary,
   },
 });
 
@@ -56,13 +42,22 @@ const findUser = async (email) => {
   return User.findOne({ where: { email: email }, raw: true });
 };
 
-const updateData = async(data, userId) => {
-  return User.update(data, {where: {id: userId}});
-}
+const findUserByPk = async (id) => {
+  return User.findByPk(id, { raw: true });
+};
+
+const updateData = async (data, userId) => {
+  return User.update(data, { where: { id: userId } });
+};
+
+const getLikedMusics = async (userId) => {
+  return User.find;
+};
 
 module.exports = {
   User,
   createUser,
   findUser,
   updateData,
+  findUserByPk,
 };
