@@ -69,11 +69,17 @@ $ cd Hubium
  ``` bash
 $ npm install
  ```
-4. Execute a aplicação
+4.Crie um arquivo ```.env ```
+
+5.Copie o que está escrito no arquivo ```.env.example```  para o arquivo que você acabou de criar
+
+6.Configure o seu banco de dados (host, user, password e o db (nome do seu banco de dados)
+
+7. Execute a aplicação
  ``` bash
 $ npm start
  ```
-5. O servidor iniciará na porta:3000 - acesse <http://localhost:3000>
+8. O servidor iniciará na porta:3000 - acesse <http://localhost:3000>
 
 <hr>
 
