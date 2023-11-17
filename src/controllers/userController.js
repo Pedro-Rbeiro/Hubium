@@ -1,5 +1,8 @@
 const { hash, compare } = require('bcrypt');
+
 const userModel = require('../models/User');
+const likedMusicModel = require('../models/LikedMusic');
+const musicModel = require('../models/Music');
 
 const registerPage = (_req, res) => {
   return res.render('register', { title: 'Cadastro', layout: 'min-header' });
@@ -75,6 +78,26 @@ const updateProfileData = async (req, res) => {
   return res.redirect('/');
 };
 
+const getLikedMusics = async (req, res) => {
+  const userData = req.session.userData;
+  const userId = userData.id;
+  let musicsId = [];
+
+  const likedMusics = await likedMusicModel.getLikedMusics(userId);
+
+  likedMusics.forEach((music) => {
+    musicsId.push(music.musicId);
+  });
+
+  const musicsLibrary = await musicModel.getMusics(musicsId);
+
+  res.render('profile-favorite', {
+    title: 'Favoritos',
+    userData,
+    library: musicsLibrary,
+  });
+};
+
 module.exports = {
   registerPage,
   createUser,
@@ -83,4 +106,5 @@ module.exports = {
   logout,
   getProfileData,
   updateProfileData,
+  getLikedMusics,
 };

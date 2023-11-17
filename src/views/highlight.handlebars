@@ -3,26 +3,9 @@
   <div class="grid-flex">
 
     <div class="parent">
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-
-      {{>highlights}}
-      {{>highlights}}
-      {{>highlights}}
-
+      {{#each tracks}}
+        {{>highlights}}
+      {{/each}}
     </div>
   </div>
 </section>

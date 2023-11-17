@@ -25,16 +25,19 @@ const getPromoteProjectPage = async (req, res) => {
 
 const getMusicPage = async (req, res) => {
   const userData = req.session.userData;
+  const musicId = req.params.id;
+
+  const music = await musicModel.getMusic(musicId);
+  const link = music.link;
+
+  res.clearCookie('type');
+  res.clearCookie('musicId');
+  res.cookie('musicId', link);
+  res.cookie('type', music.type);
+
   if (userData) {
     const userId = userData.id;
-    const musicId = req.params.id;
     const likedMusic = await likedMusicModel.findMusicLiked(userId, musicId);
-    const music = await musicModel.getMusic(musicId);
-    const link = music.link;
-    res.clearCookie('type');
-    res.clearCookie('musicId');
-    res.cookie('musicId', link);
-    res.cookie('type', music.type);
 
     return res.render('musicPage', {
       title: music.name,
@@ -43,31 +46,12 @@ const getMusicPage = async (req, res) => {
       likedMusic,
     });
   } else {
-    const musicId = req.params.id;
-    const music = await musicModel.getMusic(musicId);
-    const link = music.link;
-    res.clearCookie('type');
-    res.clearCookie('musicId');
-    res.cookie('musicId', link);
-    res.cookie('type', music.type);
-
     return res.render('musicPage', {
       title: music.name,
       music: music.get({ plain: true }),
       userData,
     });
   }
-  // res.clearCookie('type');
-  // res.clearCookie('musicId');
-  // res.cookie('musicId', link);
-  // res.cookie('type', music.type);
-
-  // return res.render('musicPage', {
-  //   title: music.name,
-  //   music: music.get({ plain: true }),
-  //   userData,
-  //   likedMusic,
-  // });
 };
 
 const likeMusic = async (req, res) => {
@@ -135,12 +119,41 @@ const getResults = async (req, res) => {
 
 const getLibrary = async (req, res) => {
   const userData = req.session.userData;
-  return res.render('library', { userData, title: 'Library' });
+  let musicsId = [];
+  const userId = userData.id;
+
+  const likedMusics = await likedMusicModel.getLikedMusics(userId);
+
+  likedMusics.forEach((music) => {
+    musicsId.push(music.musicId);
+  });
+
+  const musicsLibrary = await musicModel.getMusics(musicsId);
+
+  return res.render('library', {
+    userData,
+    title: 'Library',
+    library: musicsLibrary,
+  });
 };
 
 const getHighlight = async (req, res) => {
   const userData = req.session.userData;
-  return res.render('highlight', { userData, title: 'Highlights' });
+  const tracks = await musicModel.getAllTracks();
+  return res.render('highlight', { userData, title: 'Highlights', tracks });
+};
+
+const getUserProjects = async (req, res) => {
+  const userData = req.session.userData;
+  const userId = userData.id;
+
+  const userProjects = await musicModel.findUserProjects(userId);
+
+  return res.render('profile-projects', {
+    title: 'Projetos',
+    userProjects,
+    userData,
+  });
 };
 
 module.exports = {
@@ -152,4 +165,5 @@ module.exports = {
   getMusicPage,
   likeMusic,
   dislikeMusic,
+  getUserProjects,
 };
