@@ -91,7 +91,7 @@ Agradecimentos especiais para essas pessoas! 😀:
   </tr>
   </tbody>
 </table>
-Este projeto segue a especificação de todos os contribuidores. Contribuições de qualquer tipo são bem-vindas!
+Este projeto segue as especificações de todos os contribuintes. Contribuições de qualquer tipo são bem-vindas!
 
 ## LICENSE
 
