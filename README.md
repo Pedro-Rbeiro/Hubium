@@ -77,7 +77,7 @@ $ npm start
 
 <hr>
 
-## Contribuidores
+## Contribuintes
 
 Agradecimentos especiais para essas pessoas! 😀:
 
