@@ -26,19 +26,19 @@
         <h1 class="medium500 font-size16">TOP 10 ALBUNS DA SEMANA</h1>
         <div id="carousel" class="carousel-container">
           {{#each albums}}
-            {{> carousel}}
+          {{> carousel}}
           {{/each}}
         </div>
       </div>
     </div>
     <div class="new-songs">
       <h1 class="medium500 font-size28">Destaque</h1>
-      
+
       <div class="top10-week">
         <h1 class="medium500 font-size16">TOP 50 FAIXAS DO MÊS</h1>
         <div id="carousel" class="carousel-container">
           {{#each tracks}}
-            {{> carousel}}
+          {{> carousel}}
           {{/each}}
         </div>
         <div class="see-more-flex">
@@ -50,27 +50,29 @@
       <h1 class="medium500 font-size28">Biblioteca</h1>
       <div class="top10-week">
         {{#if userData}}
-          <h1 class="medium500 font-size16">SUAS FAIXAS FAVORITAS</h1>
-          <div id="carousel" class="carousel-container">
-            {{#if library}}
-              {{#each library}}
-                {{> carousel}}
-              {{/each}}
-            {{else}}
-              <h2>Vamos lá! Curta novas musicas</h2>
-            {{/if}}
-          </div>
-          <div class="see-more-flex">
-            <a class="see-more" href="/library">ver mais ></a>
-          </div>
+        <h1 class="medium500 font-size16">SUAS FAIXAS FAVORITAS</h1>
+        <div id="carousel" class="carousel-container">
+          {{#if library}}
+          {{#each library}}
+          {{> carousel}}
+          {{/each}}
+          {{else}}
+          <h2>Vamos lá! Curta novas musicas</h2>
+          {{/if}}
+        </div>
+        <div class="see-more-flex">
+          <a class="see-more" href="/library">ver mais ></a>
+        </div>
         {{else}}
-          <h2>Cadastrar-se ou faça login para acessar essa página</h2>
+        <h2>Cadastrar-se ou faça login para acessar essa página</h2>
         {{/if}}
       </div>
     </div>
   </div>
   </div>
   <script src="/public/js/home.bundle.min.js" defer></script>
+  <!-- Start of hubiumsupport Zendesk Widget script -->
   <script id="ze-snippet"
-    src="https://static.zdassets.com/ekr/snippet.js?key=93332c0c-e90e-43d1-8e8a-dd6583e26077"> </script>
+    src="https://static.zdassets.com/ekr/snippet.js?key=4bf79c9f-6564-4e7c-b42c-bf7e73977862"> </script>
+  <!-- End of hubiumsupport Zendesk Widget script -->
 </section>
