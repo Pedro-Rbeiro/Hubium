@@ -5,6 +5,8 @@ const { Op } = require('sequelize');
 const { MusicTag } = require('./MusicTag');
 const { Tag } = require('./Tag');
 const { User } = require('../models/User');
+const { LikedMusic } = require('./LikedMusic');
+
 const sequelize = require('../db/conn');
 
 const Music = db.define('music', {
@@ -66,8 +68,9 @@ const getAllTracks = async () => {
   });
 };
 
-const getAllMusics = async () => {
+const getMusics = async (musicIds) => {
   return await Music.findAll({
+    where: { id: musicIds },
     raw: true,
   });
 };
@@ -89,17 +92,22 @@ const searchMusic = async (search) => {
   });
 };
 
-// const getMusicTags = async (musicId) => {
-//   return await Music.findByPk(musicId, {include: Tag});
-// }
+const findUserProjects = async (userId) => {
+  return await Music.findAll({
+    where: { userId: userId },
+    order: sequelize.literal('createdAt DESC'),
+    raw: true,
+  });
+};
 
 module.exports = {
   Music,
   createProject,
   getAllAlbums,
   getAllTracks,
-  getAllMusics,
+  getMusics,
   getMusic,
   findMusicLink,
   searchMusic,
+  findUserProjects,
 };

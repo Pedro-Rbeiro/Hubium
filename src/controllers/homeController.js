@@ -1,29 +1,38 @@
 const userModel = require('../models/User');
 const musicModel = require('../models/Music');
 const likedMusicModel = require('../models/LikedMusic');
+const { LikedMusic } = require('../models/LikedMusic');
 
 const home = async (req, res) => {
   const userData = req.session.userData;
-  // const userid = userData.id;
 
   const albums = await musicModel.getAllAlbums();
   const tracks = await musicModel.getAllTracks();
-  // const likedMusics = await likedMusicModel.(userid);
 
   if (userData) {
+    let musicsId = [];
+    const userId = userData.id;
+
+    const likedMusics = await likedMusicModel.getLikedMusics(userId);
+
+    likedMusics.forEach((music) => {
+      musicsId.push(music.musicId);
+    });
+
+    const musicsLibrary = await musicModel.getMusics(musicsId);
+
     return res.render('home', {
       title: 'Inicio',
       userData,
       albums,
       tracks,
-      // library,
+      library: musicsLibrary,
     });
   } else {
     return res.render('home', {
       title: 'Inicio',
       albums,
       tracks,
-      // library: likedMusics.get({ plain: true }),
     });
   }
 };

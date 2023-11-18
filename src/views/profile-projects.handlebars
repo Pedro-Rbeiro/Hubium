@@ -30,14 +30,17 @@
       {{!-- TODO: adicionar uma verificação se tem projetos/favoritos cadastrados --}}
       <h1 class="">Seus projetos</h1>
 
+       {{!-- Se tiver --}}
+      {{#if userProjects}}
+        <div id="carousel" class="carousel-container">
+          {{#each userProjects}}
+          {{> carousel}}
+          {{/each}}
+        </div>
       {{!-- Se não tiver --}}
-      <h3 class="medium500">Cadastre um novo <a class="create-project" href="">projeto!</a></h3>
-      {{!-- Se tiver --}}
-      <div id="carousel" class="carousel-container">
-        {{#each musics}}
-        {{> carousel}}
-        {{/each}}
-      </div>
+      {{else}}
+        <h3 class="medium500">Cadastre um novo <a class="create-project" href="/promote-projects">projeto!</a></h3>
+      {{/if}}
     </div>
   </div>
 </div>

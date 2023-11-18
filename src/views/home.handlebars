@@ -52,9 +52,13 @@
         {{#if userData}}
           <h1 class="medium500 font-size16">SUAS FAIXAS FAVORITAS</h1>
           <div id="carousel" class="carousel-container">
-            {{#each library}}
-              {{> carousel}}
-            {{/each}}
+            {{#if library}}
+              {{#each library}}
+                {{> carousel}}
+              {{/each}}
+            {{else}}
+              <h2>Vamos lá! Curta novas musicas</h2>
+            {{/if}}
           </div>
           <div class="see-more-flex">
             <a class="see-more" href="/library">ver mais ></a>

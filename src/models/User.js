@@ -50,10 +50,6 @@ const updateData = async (data, userId) => {
   return User.update(data, { where: { id: userId } });
 };
 
-const getLikedMusics = async (userId) => {
-  return User.find;
-};
-
 module.exports = {
   User,
   createUser,

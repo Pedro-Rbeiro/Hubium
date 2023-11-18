@@ -3,26 +3,9 @@
   <div class="grid-flex">
 
     <div class="parent">
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-
-      {{>library}}
-      {{>library}}
-      {{>library}}
-      {{>library}}
-
-      {{>library}}
-      {{>library}}
-      {{>library}}
-
+      {{#each library}}
+        {{>library}}
+      {{/each}}
     </div>
   </div>
 </section>

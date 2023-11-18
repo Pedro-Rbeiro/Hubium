@@ -39,31 +39,36 @@ router.get('/music/:id', musicController.getMusicPage);
 
 router.post('/music/like', checkAuth, musicController.likeMusic);
 
-router.post('/music/dislike', musicController.dislikeMusic);
+router.post('/music/dislike', checkAuth, musicController.dislikeMusic);
 
 router.get('/highlights', musicController.getHighlight);
 
-router.get('/library', musicController.getLibrary);
+router.get('/library', checkAuth, musicController.getLibrary);
 
 router.get('/results', musicController.getResults);
 
 router.get('/profile-data', checkAuth, userController.getProfileData);
 
-router.post('/profile-data/update', userController.updateProfileData);
+router.post(
+  '/profile-data/update',
+  checkAuth,
+  userController.updateProfileData
+);
 
-router.get('/profile-data/projects', (req, res) => {
-  res.render('profile-projects', { title: 'Projetos' });
-});
-router.get('/profile-data/library', (req, res) => {
-  res.render('profile-favorite', { title: 'Favoritos' });
-});
+router.get(
+  '/profile-data/projects',
+  checkAuth,
+  musicController.getUserProjects
+);
+
+router.get('/profile-data/library', checkAuth, userController.getLikedMusics);
 
 router.get('/logout', userController.logout);
 
 router.get('/termsnconditions', homeController.termsnconditionsPage);
 
 router.get('*', (req, res) => {
-  res.status(404).render('404', { title: 'Pagina não encontrada!' })
-})
+  res.status(404).render('404', { title: 'Pagina não encontrada!' });
+});
 
 module.exports = router;
