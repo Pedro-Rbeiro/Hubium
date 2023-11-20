@@ -42,11 +42,15 @@ const findUser = async (req, res) => {
           res.redirect('/');
         });
       } else {
-        return res.send(`<script>alert("Senha incorreta"); document.location.href = "/login" </script>`);
+        return res.send(
+          `<script>alert("Senha incorreta"); document.location.href = "/login" </script>`
+        );
       }
     });
   } else {
-    return res.send(`<script>alert("Usuario não encontrado"); document.location.href = "/login" </script>`);
+    return res.send(
+      `<script>alert("Usuario não encontrado"); document.location.href = "/login" </script>`
+    );
   }
 };
 
@@ -98,6 +102,28 @@ const getLikedMusics = async (req, res) => {
   });
 };
 
+const changePasswordPage = async (req, res) => {
+  const userData = req.session.userData;
+
+  return res.render('forgor-password', { title: 'Esqueceu a senha' });
+};
+
+const changePassword = async (req, res) => {
+  const email = req.body.email;
+  const password = await hash(req.body.password, 7);
+
+  const user = await userModel.findUser(email);
+
+  if (user) {
+    await userModel.updatePassword(password, user.id);
+    return res.redirect('/login');
+  } else {
+    return res.send(
+      `<script>alert("Usuario não encontrado"); document.location.href = "/login" </script>`
+    );
+  }
+};
+
 module.exports = {
   registerPage,
   createUser,
@@ -107,4 +133,6 @@ module.exports = {
   getProfileData,
   updateProfileData,
   getLikedMusics,
+  changePasswordPage,
+  changePassword,
 };

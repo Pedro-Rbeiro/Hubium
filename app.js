@@ -14,7 +14,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new FileStore({
-      logFn: function () { },
+      logFn: function () {},
       path: require('path').join(require('os').tmpdir(), 'sessions'),
     }),
 
@@ -43,9 +43,9 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/src/static'));
-app.get('/forgor-password', (req, res) => {
-  res.render('forgor-password', { title: 'Esqueceu a senha' })
-})
+// app.get('/forgor-password', (req, res) => {
+//   res.render('forgor-password', { title: 'Esqueceu a senha' })
+// })
 app.use(routes);
 
 conn

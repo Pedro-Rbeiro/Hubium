@@ -8,11 +8,33 @@ const userMiddlewares = require('./middlewares/userMiddlewares.js');
 const homeController = require('./controllers/homeController.js');
 const checkAuth = require('./Helpers/auth.js');
 
+//home routes
+
 router.get('/', homeController.home);
+
+router.get('/termsnconditions', homeController.termsnconditionsPage);
+
+//user routes
 
 router.get('/register', userController.registerPage);
 
 router.get('/login', userController.loginPage);
+
+router.get('/login/get', userMiddlewares.valData, userController.findUser);
+
+router.get('/forgor-password', userController.changePasswordPage);
+
+router.get('/profile-data', checkAuth, userController.getProfileData);
+
+router.get('/profile-data/library', checkAuth, userController.getLikedMusics);
+
+router.get('/logout', userController.logout);
+
+router.post(
+  '/forgor-password/post',
+  userMiddlewares.valData,
+  userController.changePassword
+);
 
 router.post(
   '/register/create',
@@ -21,12 +43,32 @@ router.post(
   userController.createUser
 );
 
-router.get('/login/get', userMiddlewares.valData, userController.findUser);
+router.post(
+  '/profile-data/update',
+  checkAuth,
+  userController.updateProfileData
+);
+
+//music routes
 
 router.get(
   '/promote-projects',
   checkAuth,
   musicController.getPromoteProjectPage
+);
+
+router.get('/highlights', musicController.getHighlight);
+
+router.get('/library', checkAuth, musicController.getLibrary);
+
+router.get('/results', musicController.getResults);
+
+router.get('/music/:id', musicController.getMusicPage);
+
+router.get(
+  '/profile-data/projects',
+  checkAuth,
+  musicController.getUserProjects
 );
 
 router.post(
@@ -35,37 +77,11 @@ router.post(
   musicController.postProjetc
 );
 
-router.get('/music/:id', musicController.getMusicPage);
-
 router.post('/music/like', checkAuth, musicController.likeMusic);
 
 router.post('/music/dislike', checkAuth, musicController.dislikeMusic);
 
-router.get('/highlights', musicController.getHighlight);
-
-router.get('/library', checkAuth, musicController.getLibrary);
-
-router.get('/results', musicController.getResults);
-
-router.get('/profile-data', checkAuth, userController.getProfileData);
-
-router.post(
-  '/profile-data/update',
-  checkAuth,
-  userController.updateProfileData
-);
-
-router.get(
-  '/profile-data/projects',
-  checkAuth,
-  musicController.getUserProjects
-);
-
-router.get('/profile-data/library', checkAuth, userController.getLikedMusics);
-
-router.get('/logout', userController.logout);
-
-router.get('/termsnconditions', homeController.termsnconditionsPage);
+//non existent routes
 
 router.get('*', (req, res) => {
   res.status(404).render('404', { title: 'Pagina não encontrada!' });

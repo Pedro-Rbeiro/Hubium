@@ -3,8 +3,6 @@ const userModel = require('../models/User');
 const tagModel = require('../models/Tag');
 const likedMusicModel = require('../models/LikedMusic');
 const musicTagModel = require('../models/MusicTag');
-const { Tag } = require('../models/Tag');
-const { Music } = require('../models/Music');
 
 const getPromoteProjectPage = async (req, res) => {
   const userData = req.session.userData;

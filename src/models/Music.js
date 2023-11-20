@@ -4,8 +4,6 @@ const { Op } = require('sequelize');
 
 const { MusicTag } = require('./MusicTag');
 const { Tag } = require('./Tag');
-const { User } = require('../models/User');
-const { LikedMusic } = require('./LikedMusic');
 
 const sequelize = require('../db/conn');
 
