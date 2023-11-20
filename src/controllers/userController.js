@@ -42,11 +42,11 @@ const findUser = async (req, res) => {
           res.redirect('/');
         });
       } else {
-        return res.send({ mensage: 'Senha incorreta' });
+        return res.send(`<script>alert("Senha incorreta"); document.location.href = "/login" </script>`);
       }
     });
   } else {
-    return res.send({ mensage: 'Usuário não encontrado' });
+    return res.send(`<script>alert("Usuario não encontrado"); document.location.href = "/login" </script>`);
   }
 };
 

@@ -6,7 +6,7 @@ const valMusic = async (req, res, next) => {
   const music = await musicModel.findMusicLink(linkForm);
 
   if (music) {
-    return res.send({ mensage: 'Música já cadastrada no sistema' });
+    return res.send(`<script>alert("Musica já cadastrada no sistema"); document.location.href = "/promote-projects" </script>`);
   } else {
     next();
   }
