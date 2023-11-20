@@ -23,11 +23,6 @@ const LikedMusic = db.define('liked_music', {
 
 const setLikedMusic = async (userId, musicId) => {
   await LikedMusic.create({ userId, musicId });
-  // console.log(userId);
-  // console.log(musicId);
-  // await userId.setMusic(musicId);
-  // await music.setUser(userId);
-  // await user.setMusic(musicId);
 };
 
 const deleteLikedMusic = async (userId, musicId) => {
@@ -47,13 +42,10 @@ const getLikedMusics = async (userId) => {
   });
 };
 
-// const countLikes = async (musicId) => {};
-
 module.exports = {
   LikedMusic,
   setLikedMusic,
   deleteLikedMusic,
   findMusicLiked,
   getLikedMusics,
-  // countLikes,
 };

@@ -1,7 +1,5 @@
-const userModel = require('../models/User');
 const musicModel = require('../models/Music');
 const likedMusicModel = require('../models/LikedMusic');
-const { LikedMusic } = require('../models/LikedMusic');
 
 const home = async (req, res) => {
   const userData = req.session.userData;

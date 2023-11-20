@@ -50,10 +50,15 @@ const updateData = async (data, userId) => {
   return User.update(data, { where: { id: userId } });
 };
 
+const updatePassword = async (password, userId) => {
+  await User.update({ password: password }, { where: { id: userId } });
+};
+
 module.exports = {
   User,
   createUser,
   findUser,
   updateData,
   findUserByPk,
+  updatePassword,
 };
