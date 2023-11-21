@@ -437,7 +437,7 @@ label {
 }
 
 .profile-page-container {
-  padding: 80px 100px 0 100px;
+  padding: 80px 0 0 0;
 }
 
 .new-songs {
@@ -777,6 +777,12 @@ a>svg {
   color: var(--hover);
   cursor: pointer;
 }
+
+.profile-page-content {
+  width: 100vw;
+}
+
+
 
 .music-flex {
   display: flex;

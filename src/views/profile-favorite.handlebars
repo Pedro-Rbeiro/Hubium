@@ -28,15 +28,17 @@
       {{!-- TODO: adicionar uma verificação se tem projetos/favoritos cadastrados --}}
       <h1 class="">Seus favoritos</h1>
       {{#if library}}
-        {{!-- Se tiver --}}
+      {{!-- Se tiver --}}
+      <div class="top10-week">
         <div id="carousel" class="carousel-container">
-        {{#each library}}
+          {{#each library}}
           {{> carousel}}
-        {{/each}}
+          {{/each}}
+        </div>
       </div>
       {{else}}
-        {{!-- Se não tiver --}}
-        <h3 class="medium500">Vamos lá! <a class="create-project" href="/">Curta novas musicas</a></h3>
+      {{!-- Se não tiver --}}
+      <h3 class="medium500">Vamos lá! <a class="create-project" href="/">Curta novas musicas</a></h3>
       {{/if}}
     </div>
   </div>
