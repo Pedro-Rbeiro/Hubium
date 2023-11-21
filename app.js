@@ -43,9 +43,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/src/static'));
-// app.get('/forgor-password', (req, res) => {
-//   res.render('forgor-password', { title: 'Esqueceu a senha' })
-// })
+
 app.use(routes);
 
 conn
