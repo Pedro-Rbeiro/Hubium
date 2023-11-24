@@ -23,13 +23,12 @@
 <hr>
 <!--Descrição-->
 <h4 align="center"> 
-  <img alt="License" src="https://img.shields.io/github/license/Pedro-Rbeiro/Hubium">
-  <img src="https://img.shields.io/github/commit-activity/m/Pedro-Rbeiro/Hubium">
-  <br>
+
   <br>
 	🚀  Hubium  🚀
 </h4>
-
+  <br>
+    
 ## O que é a Hubium?
 
 <p>Especializado na promoção de artistas pequenos e independentes, o Hubium oferece uma plataforma dedicada à descoberta de novas vozes e sonoridades.<br/> O Hubium é o ponto de encontro para aqueles que buscam experiências musicais autênticas e desejam apoiar talentos emergentes. Junte-se a nós e descubra o próximo grande som no Hubium, onde a música encontra seu verdadeiro público.</p>
