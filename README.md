@@ -27,7 +27,7 @@
   <img src="https://img.shields.io/github/commit-activity/m/Pedro-Rbeiro/Hubium">
   <br>
   <br>
-	🚧  Hubium 🚀 Em construção...  🚧
+	🚀  Hubium  🚀
 </h4>
 
 ## O que é a Hubium?
