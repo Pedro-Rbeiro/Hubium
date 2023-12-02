@@ -25,7 +25,7 @@
 <h4 align="center"> 
 
   <br>
-	🚀  Hubium  🚀
+	🚀  TCC Novotec Hubium   🚀
 </h4>
   <br>
     
